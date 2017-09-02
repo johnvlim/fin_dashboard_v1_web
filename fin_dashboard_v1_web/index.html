@@ -39,8 +39,17 @@
 			app.js
 			*************** -->
 	<script src="docs/common/app.js"></script>
+	
+	<!--  *************** 
+			controllers
+			*************** -->
+	<script src="docs/test/chart/js/controllers/testChartController.js"></script>
 </head>
-<body
+<body 
 	ng-app='fin_dashboard_web'>
+	<!-- test (begin) -->
+	<div 
+		ng-include="'docs/test/chart/test_chart.html'"></div>
+	<!-- test (end) -->
 </body>
 </html>
