@@ -3,6 +3,7 @@ angular
 		'fin_dashboard_web', 
 		[
 			'ui.bootstrap', 
-			'ui.router'
+			'ui.router', 
+			'chart.js'
 		]
 		);
