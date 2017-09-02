@@ -1,8 +1,8 @@
 angular
 .module(
-		'fin_at_dashboard', 
+		'fin_dashboard_web', 
 		[
 			'ui.bootstrap', 
 			'ui.router'
 		]
-		)
+		);
