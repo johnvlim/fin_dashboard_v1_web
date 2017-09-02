@@ -1,101 +1,55 @@
-angular
-.module('fin_dashboard_web')
-.controller(
-		'lineChartController', 
-		lineChartController
-		)
-.controller(
-		'barChartController', 
-		barChartController
-		)
-.controller(
-		'doughnutChartController', 
-		doughnutChartController
-		)
-.controller(
-		'radarChartController', 
-		radarChartController
-		)
-.controller(
-		'pieChartController', 
-		pieChartController
-		)
-.controller(
-		'polarAreaChartController', 
-		polarAreaChartController
-		)
-.controller(
-		'horizontalBarChartController', 
-		horizontalBarChartController
-		)
-.controller(
-		'bubbleChartController', 
-		bubbleChartController
-		)
-.controller(
-		'dynamicChartController', 
-		dynamicChartController
-		)
+angular.module('fin_dashboard_web').controller('lineChartController',
+		lineChartController).controller('barChartController',
+		barChartController).controller('doughnutChartController',
+		doughnutChartController).controller('radarChartController',
+		radarChartController).controller('pieChartController',
+		pieChartController).controller('polarAreaChartController',
+		polarAreaChartController).controller('horizontalBarChartController',
+		horizontalBarChartController).controller('bubbleChartController',
+		bubbleChartController).controller('dynamicChartController',
+		dynamicChartController)
 
-lineChartController.$inject = [
-];
+lineChartController.$inject = [];
 
-barChartController.$inject = [
-];
+barChartController.$inject = [];
 
-doughnutChartController.$inject = [
-];
+doughnutChartController.$inject = [];
 
-radarChartController.$inject = [
-];
+radarChartController.$inject = [];
 
-pieChartController.$inject = [
-];
+pieChartController.$inject = [];
 
-polarAreaChartController.$inject = [
-];
+polarAreaChartController.$inject = [];
 
-horizontalBarChartController.$inject = [
-];
+horizontalBarChartController.$inject = [];
 
-bubbleChartController.$inject = [
-];
+bubbleChartController.$inject = [];
 
-dynamicChartController.$inject = [
-];
+dynamicChartController.$inject = [];
 
-function lineChartController(
-		){
+function lineChartController() {
 }
 
-function barChartController(
-		){
+function barChartController() {
 }
 
-function doughnutChartController(
-		){
+function doughnutChartController() {
 }
 
-function radarChartController(
-		){
+function radarChartController() {
 }
 
-function pieChartController(
-		){
+function pieChartController() {
 }
 
-function polarAreaChartController(
-		){
+function polarAreaChartController() {
 }
 
-function horizontalBarChartController(
-		){
+function horizontalBarChartController() {
 }
 
-function bubbleChartController(
-		){
+function bubbleChartController() {
 }
 
-function dynamicChartController(
-		){
+function dynamicChartController() {
 }

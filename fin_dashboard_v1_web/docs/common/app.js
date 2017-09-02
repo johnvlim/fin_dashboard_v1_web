@@ -1,9 +1,3 @@
 angular
-.module(
-		'fin_dashboard_web', 
-		[
-			'ui.bootstrap', 
-			'ui.router', 
-			'chart.js'
-		]
-		);
+		.module('fin_dashboard_web',
+				[ 'ui.bootstrap', 'ui.router', 'chart.js' ]);
