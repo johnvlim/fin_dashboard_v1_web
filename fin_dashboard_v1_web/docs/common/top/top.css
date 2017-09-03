@@ -17,12 +17,12 @@ div.navbar a.navbar-brand span.brand-team-name {
 	font-size: 12px;
 }
 
-div.navbar div#navMenus {
+div.navbar div#topMenus {
 	font-family: 'Roboto', sans-serif;
 	font-size: 15px;
 }
 
-#finastraBanner {
+img#finastraBanner {
 	border: solid 1px #d3d3d3;
 	width: 100%;
 }
