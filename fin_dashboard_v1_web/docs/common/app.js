@@ -1,3 +1,2 @@
-angular
-		.module('fin_dashboard_web',
-				[ 'ui.bootstrap', 'ui.router', 'chart.js' ]);
+angular.module('fin_dashboard_web', [ 'ui.bootstrap', 'ui.router', 'chart.js',
+		'angularResizable' ]);

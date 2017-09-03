@@ -27,6 +27,11 @@ bubbleChartController.$inject = [];
 function lineChartController($scope) {
 	var vm = this;
 
+	vm.resizableDimensions = {
+		height : 300,
+		width : 300
+	};
+
 	/*
 	 * test (begin) src: http://jtblin.github.io/angular-chart.js/
 	 */
@@ -57,6 +62,11 @@ function lineChartController($scope) {
 function barChartController() {
 	var vm = this;
 
+	vm.resizableDimensions = {
+		height : 300,
+		width : 300
+	};
+
 	/*
 	 * test (begin) src: http://jtblin.github.io/angular-chart.js/
 	 */
@@ -72,6 +82,11 @@ function barChartController() {
 function doughnutChartController() {
 	var vm = this;
 
+	vm.resizableDimensions = {
+		height : 300,
+		width : 300
+	};
+
 	/*
 	 * test (begin) src: http://jtblin.github.io/angular-chart.js/
 	 */
@@ -84,6 +99,11 @@ function doughnutChartController() {
 
 function radarChartController() {
 	var vm = this;
+
+	vm.resizableDimensions = {
+		height : 300,
+		width : 300
+	};
 
 	/*
 	 * test (begin) src: http://jtblin.github.io/angular-chart.js/
@@ -100,6 +120,11 @@ function radarChartController() {
 function pieChartController() {
 	var vm = this;
 
+	vm.resizableDimensions = {
+		height : 300,
+		width : 300
+	};
+
 	/*
 	 * test (begin) src: http://jtblin.github.io/angular-chart.js/
 	 */
@@ -112,6 +137,11 @@ function pieChartController() {
 
 function polarAreaChartController() {
 	var vm = this;
+
+	vm.resizableDimensions = {
+		height : 300,
+		width : 300
+	};
 
 	/*
 	 * test (begin) src: http://jtblin.github.io/angular-chart.js/
@@ -127,6 +157,11 @@ function polarAreaChartController() {
 function horizontalBarChartController() {
 	var vm = this;
 
+	vm.resizableDimensions = {
+		height : 300,
+		width : 300
+	};
+
 	/*
 	 * test (begin) src: http://jtblin.github.io/angular-chart.js/
 	 */
@@ -141,6 +176,11 @@ function horizontalBarChartController() {
 
 function bubbleChartController() {
 	var vm = this;
+
+	vm.resizableDimensions = {
+		height : 300,
+		width : 300
+	};
 
 	/*
 	 * test (begin) src: http://jtblin.github.io/angular-chart.js/
