@@ -18,7 +18,7 @@ pieChart.$inject = [ 'DIRECTIVE_RESTRICTIONS' ];
 
 polarAreaChart.$inject = [ 'DIRECTIVE_RESTRICTIONS' ];
 
-horizontalBarChart.$inject = [ 'DIRECTIVE_RESTRICTIONS', 'VIEW_MODEL' ];
+horizontalBarChart.$inject = [ 'DIRECTIVE_RESTRICTIONS' ];
 
 bubbleChart.$inject = [ 'DIRECTIVE_RESTRICTIONS', 'VIEW_MODEL' ];
 
@@ -90,15 +90,13 @@ function polarAreaChart(DIRECTIVE_RESTRICTIONS) {
 	return dirPolarAreaChart;
 }
 
-function horizontalBarChart(DIRECTIVE_RESTRICTIONS, VIEW_MODEL) {
+function horizontalBarChart(DIRECTIVE_RESTRICTIONS) {
 	var dirHorizontalBarChart = {};
 
 	dirHorizontalBarChart.restrict = DIRECTIVE_RESTRICTIONS.res_element;
-	dirHorizontalBarChart.template = '<div>horizontal_bar_chart_template_test</div>';
+	dirHorizontalBarChart.templateUrl = 'docs/common/charts/horizontal-bar-chart.html';
 	dirHorizontalBarChart.controller = horizontalBarChartController;
-	dirHorizontalBarChart.controllerAs = VIEW_MODEL;
-	dirHorizontalBarChart.link = function(scope, element, attrs) {
-	}
+	dirHorizontalBarChart.controllerAs = 'horizontalBarChartController';
 
 	return dirHorizontalBarChart;
 }
