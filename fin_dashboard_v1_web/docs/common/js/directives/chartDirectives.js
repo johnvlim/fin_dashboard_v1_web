@@ -6,15 +6,15 @@ angular.module('fin_dashboard_web').directive('lineChart', lineChart)
 				horizontalBarChart).directive('bubbleChart', bubbleChart)
 		.directive('dynamicChart', dynamicChart);
 
-lineChart.$inject = [ 'DIRECTIVE_RESTRICTIONS', 'VIEW_MODEL' ];
+lineChart.$inject = [ 'DIRECTIVE_RESTRICTIONS' ];
 
-barChart.$inject = [ 'DIRECTIVE_RESTRICTIONS', 'VIEW_MODEL' ];
+barChart.$inject = [ 'DIRECTIVE_RESTRICTIONS' ];
 
-doughnutChart.$inject = [ 'DIRECTIVE_RESTRICTIONS', 'VIEW_MODEL' ];
+doughnutChart.$inject = [ 'DIRECTIVE_RESTRICTIONS' ];
 
-radarChart.$inject = [ 'DIRECTIVE_RESTRICTIONS', 'VIEW_MODEL' ];
+radarChart.$inject = [ 'DIRECTIVE_RESTRICTIONS' ];
 
-pieChart.$inject = [ 'DIRECTIVE_RESTRICTIONS', 'VIEW_MODEL' ];
+pieChart.$inject = [ 'DIRECTIVE_RESTRICTIONS' ];
 
 polarAreaChart.$inject = [ 'DIRECTIVE_RESTRICTIONS', 'VIEW_MODEL' ];
 
@@ -68,15 +68,13 @@ function radarChart(DIRECTIVE_RESTRICTIONS) {
 	return dirRadarChart;
 }
 
-function pieChart(DIRECTIVE_RESTRICTIONS, VIEW_MODEL) {
+function pieChart(DIRECTIVE_RESTRICTIONS) {
 	var dirPieChart = {};
 
 	dirPieChart.restrict = DIRECTIVE_RESTRICTIONS.res_element;
-	dirPieChart.template = '<div>pie_chart_template_test</div>';
+	dirPieChart.templateUrl = 'docs/common/charts/pie-chart.html';
 	dirPieChart.controller = pieChartController;
-	dirPieChart.controllerAs = VIEW_MODEL;
-	dirPieChart.link = function(scope, element, attrs) {
-	}
+	dirPieChart.controllerAs = 'pieChartController';
 
 	return dirPieChart;
 }

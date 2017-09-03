@@ -101,6 +101,16 @@ function radarChartController() {
 }
 
 function pieChartController() {
+	var vm = this;
+
+	/*
+	 * test (begin) src: http://jtblin.github.io/angular-chart.js/
+	 */
+	vm.chartData = [ 300, 500, 100 ];
+	vm.chartLabels = [ 'Download Sales', 'In-Store Sales', 'Mail-Order Sales' ];
+	/*
+	 * test (end)
+	 */
 }
 
 function polarAreaChartController() {
