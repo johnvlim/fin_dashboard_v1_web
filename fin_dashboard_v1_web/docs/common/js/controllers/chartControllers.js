@@ -114,6 +114,17 @@ function pieChartController() {
 }
 
 function polarAreaChartController() {
+	var vm = this;
+
+	/*
+	 * test (begin) src: http://jtblin.github.io/angular-chart.js/
+	 */
+	vm.chartData = [ 300, 500, 100, 40, 120 ];
+	vm.chartLabels = [ 'Download Sales', 'In-Store Sales', 'Mail-Order Sales',
+			'Tele Sales', 'Corporate Sales' ];
+	/*
+	 * test (end)
+	 */
 }
 
 function horizontalBarChartController() {

@@ -16,7 +16,7 @@ radarChart.$inject = [ 'DIRECTIVE_RESTRICTIONS' ];
 
 pieChart.$inject = [ 'DIRECTIVE_RESTRICTIONS' ];
 
-polarAreaChart.$inject = [ 'DIRECTIVE_RESTRICTIONS', 'VIEW_MODEL' ];
+polarAreaChart.$inject = [ 'DIRECTIVE_RESTRICTIONS' ];
 
 horizontalBarChart.$inject = [ 'DIRECTIVE_RESTRICTIONS', 'VIEW_MODEL' ];
 
@@ -79,15 +79,13 @@ function pieChart(DIRECTIVE_RESTRICTIONS) {
 	return dirPieChart;
 }
 
-function polarAreaChart(DIRECTIVE_RESTRICTIONS, VIEW_MODEL) {
+function polarAreaChart(DIRECTIVE_RESTRICTIONS) {
 	var dirPolarAreaChart = {};
 
 	dirPolarAreaChart.restrict = DIRECTIVE_RESTRICTIONS.res_element;
-	dirPolarAreaChart.template = '<div>polar_area_chart_template_test</div>';
+	dirPolarAreaChart.templateUrl = 'docs/common/charts/polar-area-chart.html';
 	dirPolarAreaChart.controller = polarAreaChartController;
-	dirPolarAreaChart.controllerAs = VIEW_MODEL;
-	dirPolarAreaChart.link = function(scope, element, attrs) {
-	}
+	dirPolarAreaChart.controllerAs = 'polarAreaChartController';
 
 	return dirPolarAreaChart;
 }
