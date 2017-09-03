@@ -3,6 +3,25 @@ div.navbar {
 	margin-bottom: 0px;
 }
 
+div.navbar a.navbar-brand {
+	color: #ffffff;
+	line-height: 12px;
+}
+
+div.navbar a.navbar-brand span.brand-company-name {
+	font-family: 'Alfa Slab One', cursive;
+}
+
+div.navbar a.navbar-brand span.brand-team-name {
+	font-family: 'Roboto', sans-serif;
+	font-size: 12px;
+}
+
+div.navbar div#navMenus {
+	font-family: 'Roboto', sans-serif;
+	font-size: 15px;
+}
+
 #finastraBanner {
 	border: solid 1px #d3d3d3;
 	width: 100%;
