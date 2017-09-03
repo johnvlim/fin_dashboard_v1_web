@@ -23,6 +23,8 @@
 			bootstrap
 			*************** -->
 <script src="lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<link rel='stylesheet'
+	href='lib/bower_components/bootstrap/dist/css/bootstrap.min.css'>
 
 <!--  *************** 
 			angular-bootstrap
@@ -57,11 +59,6 @@
 <script src="docs/common/constants.js"></script>
 
 <!--  *************** 
-			directives
-			*************** -->
-<script src="docs/common/charts/js/directives/chartDirectives.js"></script>
-
-<!--  *************** 
 			controllers
 			*************** -->
 <script src="docs/common/charts/js/controllers/chartControllers.js"></script>
@@ -69,10 +66,15 @@
 <!--  *************** 
 			css
 			*************** -->
-<link rel="stylesheet" href="docs/common/charts/chart.css">
+<link rel="stylesheet" href="docs/common/top/top.css">
+
+<!--  *************** 
+			directives
+			*************** -->
+<script src="docs/common/charts/js/directives/chartDirectives.js"></script>
 
 </head>
 <body ng-app='fin_dashboard_web'>
-	<pie-chart></pie-chart>
+	<div ng-include="'docs/common/top/top.html'"></div>
 </body>
 </html>

@@ -1,1 +1,8 @@
-@CHARSET "ISO-8859-1";
+div.navbar {
+	margin-bottom: 0px;
+}
+
+#finastraBanner {
+	border: solid 1px #d3d3d3;
+	width: 100%;
+}
