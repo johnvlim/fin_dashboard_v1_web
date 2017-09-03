@@ -20,7 +20,7 @@ polarAreaChart.$inject = [ 'DIRECTIVE_RESTRICTIONS' ];
 
 horizontalBarChart.$inject = [ 'DIRECTIVE_RESTRICTIONS' ];
 
-bubbleChart.$inject = [ 'DIRECTIVE_RESTRICTIONS', 'VIEW_MODEL' ];
+bubbleChart.$inject = [ 'DIRECTIVE_RESTRICTIONS' ];
 
 dynamicChart.$inject = [ 'DIRECTIVE_RESTRICTIONS', 'VIEW_MODEL' ];
 
@@ -105,11 +105,9 @@ function bubbleChart(DIRECTIVE_RESTRICTIONS, VIEW_MODEL) {
 	var dirBubbleChart = {};
 
 	dirBubbleChart.restrict = DIRECTIVE_RESTRICTIONS.res_element;
-	dirBubbleChart.template = '<div>bubble_chart_template_test</div>';
+	dirBubbleChart.templateUrl = 'docs/common/charts/bubble-chart.html';
 	dirBubbleChart.controller = bubbleChartController;
-	dirBubbleChart.controllerAs = VIEW_MODEL;
-	dirBubbleChart.link = function(scope, element, attrs) {
-	}
+	dirBubbleChart.controllerAs = 'bubbleChartController';
 
 	return dirBubbleChart;
 }

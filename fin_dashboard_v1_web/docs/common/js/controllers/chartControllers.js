@@ -143,6 +143,24 @@ function horizontalBarChartController() {
 }
 
 function bubbleChartController() {
+	var vm = this;
+
+	/*
+	 * test (begin) src: http://jtblin.github.io/angular-chart.js/
+	 */
+	vm.chartData = [ [ {
+		x : 40,
+		y : 10,
+		r : 20
+	} ], [ {
+		x : 10,
+		y : 40,
+		r : 50
+	} ] ];
+	vm.chartSeries = [ 'Series A', 'Series B' ];
+	/*
+	 * test (end)
+	 */
 }
 
 function dynamicChartController() {
