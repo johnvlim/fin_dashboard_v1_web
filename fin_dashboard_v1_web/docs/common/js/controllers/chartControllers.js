@@ -9,7 +9,7 @@ angular.module('fin_dashboard_web').controller('lineChartController',
 		bubbleChartController).controller('dynamicChartController',
 		dynamicChartController)
 
-lineChartController.$inject = [];
+lineChartController.$inject = [ '$scope' ];
 
 barChartController.$inject = [];
 
@@ -27,10 +27,49 @@ bubbleChartController.$inject = [];
 
 dynamicChartController.$inject = [];
 
-function lineChartController() {
+function lineChartController($scope) {
+	var vm = this;
+
+	/*
+	 * test (begin) src: http://jtblin.github.io/angular-chart.js/
+	 */
+	vm.chartData = [ [ 65, 59, 80, 81, 56, 55, 40 ],
+			[ 28, 48, 40, 19, 86, 27, 90 ] ];
+	vm.chartLabels = [ 'January', 'February', 'March', 'April', 'May', 'June',
+			'July' ];
+	vm.chartOptions = {
+		scales : {
+			yAxes : [ {
+				id : 'y-axis-1',
+				type : 'linear',
+				display : true,
+				position : 'left'
+			}, {
+				id : 'y-axis-2',
+				type : 'linear',
+				display : true,
+				position : 'left'
+			} ]
+		}
+	};
+	/*
+	 * test (end)
+	 */
 }
 
 function barChartController() {
+	var vm = this;
+
+	/*
+	 * test (begin) src: http://jtblin.github.io/angular-chart.js/
+	 */
+	vm.chartData = [ [ 65, 59, 80, 81, 56, 55, 40 ],
+			[ 28, 48, 40, 19, 86, 27, 90 ] ];
+	vm.chartLabels = [ '2006', '2007', '2008', '2009', '2010', '2011', '2012' ];
+	vm.chartSeries = [ 'Series A', 'Series B' ];
+	/*
+	 * test (end)
+	 */
 }
 
 function doughnutChartController() {

@@ -1,122 +1,136 @@
 angular.module('fin_dashboard_web').directive('lineChart', lineChart)
-		.directive('bar-chart', barChart).directive('doughnut-chart',
-				doughnutChart).directive('radar-chart', radarChart).directive(
-				'pie-chart', pieChart).directive('polar-area-chart',
-				polarAreaChart).directive('horizontal-bar-chart',
-				horizontalBarChart).directive('bubble-chart', bubbleChart)
-		.directive('dynamic-chart', dynamicChart);
+		.directive('barChart', barChart).directive('doughnutChart',
+				doughnutChart).directive('radarChart', radarChart).directive(
+				'pieChart', pieChart).directive('polarAreaChart',
+				polarAreaChart).directive('horizontalBarChart',
+				horizontalBarChart).directive('bubbleChart', bubbleChart)
+		.directive('dynamicChart', dynamicChart);
 
-function lineChart() {
+lineChart.$inject = [ 'DIRECTIVE_RESTRICTIONS', 'VIEW_MODEL' ];
+
+barChart.$inject = [ 'DIRECTIVE_RESTRICTIONS', 'VIEW_MODEL' ];
+
+doughnutChart.$inject = [ 'DIRECTIVE_RESTRICTIONS', 'VIEW_MODEL' ];
+
+radarChart.$inject = [ 'DIRECTIVE_RESTRICTIONS', 'VIEW_MODEL' ];
+
+pieChart.$inject = [ 'DIRECTIVE_RESTRICTIONS', 'VIEW_MODEL' ];
+
+polarAreaChart.$inject = [ 'DIRECTIVE_RESTRICTIONS', 'VIEW_MODEL' ];
+
+horizontalBarChart.$inject = [ 'DIRECTIVE_RESTRICTIONS', 'VIEW_MODEL' ];
+
+bubbleChart.$inject = [ 'DIRECTIVE_RESTRICTIONS', 'VIEW_MODEL' ];
+
+dynamicChart.$inject = [ 'DIRECTIVE_RESTRICTIONS', 'VIEW_MODEL' ];
+
+function lineChart(DIRECTIVE_RESTRICTIONS, VIEW_MODEL) {
 	var dirLineChart = {};
 
-	dirLineChart.restrict = 'E';
-	dirLineChart.template = '<div>line_chart_template_test</div>';
+	dirLineChart.restrict = DIRECTIVE_RESTRICTIONS.res_element;
+	dirLineChart.templateUrl = 'docs/common/charts/line-chart.html';
 	dirLineChart.controller = lineChartController;
-	dirLineChart.controllerAs = 'vm';
-	dirLineChart.link = function(scope, element, attrs) {
-	}
+	dirLineChart.controllerAs = 'lineChartController';
 
 	return dirLineChart;
 }
 
-function barChart() {
+function barChart(DIRECTIVE_RESTRICTIONS, VIEW_MODEL) {
 	var dirBarChart = {};
 
-	dirBarChart.restrict = 'E';
-	dirBarChart.template = '<div>bar_chart_template_test</div>';
+	dirBarChart.restrict = DIRECTIVE_RESTRICTIONS.res_element;
+	dirBarChart.templateUrl = 'docs/common/charts/bar-chart.html';
 	dirBarChart.controller = barChartController;
-	dirBarChart.controllerAs = 'vm';
-	dirBarChart.link = function(scope, element, attrs) {
-	}
+	dirBarChart.controllerAs = 'barChartController';
 
 	return dirBarChart;
 }
 
-function doughnutChart() {
+function doughnutChart(DIRECTIVE_RESTRICTIONS, VIEW_MODEL) {
 	var dirDoughnutChart = {};
 
-	dirDoughnutChart.restrict = 'E';
+	dirDoughnutChart.restrict = DIRECTIVE_RESTRICTIONS.res_element;
 	dirDoughnutChart.template = '<div>doughnut_chart_template_test</div>';
 	dirDoughnutChart.controller = doughnutChartController;
-	dirDoughnutChart.controllerAs = 'vm';
+	dirDoughnutChart.controllerAs = VIEW_MODEL;
 	dirDoughnutChart.link = function(scope, element, attrs) {
 	}
 
 	return dirDoughnutChart;
 }
 
-function radarChart() {
+function radarChart(DIRECTIVE_RESTRICTIONS, VIEW_MODEL) {
 	var dirRadarChart = {};
 
-	dirRadarChart.restrict = 'E';
+	dirRadarChart.restrict = DIRECTIVE_RESTRICTIONS.res_element;
 	dirRadarChart.template = '<div>radar_chart_template_test</div>';
 	dirRadarChart.controller = radarChartController;
-	dirRadarChart.controllerAs = 'vm';
+	dirRadarChart.controllerAs = VIEW_MODEL;
 	dirRadarChart.link = function(scope, element, attrs) {
 	}
 
 	return dirRadarChart;
 }
 
-function pieChart() {
+function pieChart(DIRECTIVE_RESTRICTIONS, VIEW_MODEL) {
 	var dirPieChart = {};
 
-	dirPieChart.restrict = 'E';
+	dirPieChart.restrict = DIRECTIVE_RESTRICTIONS.res_element;
 	dirPieChart.template = '<div>pie_chart_template_test</div>';
 	dirPieChart.controller = pieChartController;
-	dirPieChart.controllerAs = 'vm';
+	dirPieChart.controllerAs = VIEW_MODEL;
 	dirPieChart.link = function(scope, element, attrs) {
 	}
 
 	return dirPieChart;
 }
 
-function polarAreaChart() {
+function polarAreaChart(DIRECTIVE_RESTRICTIONS, VIEW_MODEL) {
 	var dirPolarAreaChart = {};
 
-	dirPolarAreaChart.restrict = 'E';
+	dirPolarAreaChart.restrict = DIRECTIVE_RESTRICTIONS.res_element;
 	dirPolarAreaChart.template = '<div>polar_area_chart_template_test</div>';
 	dirPolarAreaChart.controller = polarAreaChartController;
-	dirPolarAreaChart.controllerAs = 'vm';
+	dirPolarAreaChart.controllerAs = VIEW_MODEL;
 	dirPolarAreaChart.link = function(scope, element, attrs) {
 	}
 
 	return dirPolarAreaChart;
 }
 
-function horizontalBarChart() {
+function horizontalBarChart(DIRECTIVE_RESTRICTIONS, VIEW_MODEL) {
 	var dirHorizontalBarChart = {};
 
-	dirHorizontalBarChart.restrict = 'E';
+	dirHorizontalBarChart.restrict = DIRECTIVE_RESTRICTIONS.res_element;
 	dirHorizontalBarChart.template = '<div>horizontal_bar_chart_template_test</div>';
 	dirHorizontalBarChart.controller = horizontalBarChartController;
-	dirHorizontalBarChart.controllerAs = 'vm';
+	dirHorizontalBarChart.controllerAs = VIEW_MODEL;
 	dirHorizontalBarChart.link = function(scope, element, attrs) {
 	}
 
 	return dirHorizontalBarChart;
 }
 
-function bubbleChart() {
+function bubbleChart(DIRECTIVE_RESTRICTIONS, VIEW_MODEL) {
 	var dirBubbleChart = {};
 
-	dirBubbleChart.restrict = 'E';
+	dirBubbleChart.restrict = DIRECTIVE_RESTRICTIONS.res_element;
 	dirBubbleChart.template = '<div>bubble_chart_template_test</div>';
 	dirBubbleChart.controller = bubbleChartController;
-	dirBubbleChart.controllerAs = 'vm';
+	dirBubbleChart.controllerAs = VIEW_MODEL;
 	dirBubbleChart.link = function(scope, element, attrs) {
 	}
 
 	return dirBubbleChart;
 }
 
-function dynamicChart() {
+function dynamicChart(DIRECTIVE_RESTRICTIONS, VIEW_MODEL) {
 	var dirDynamicChart = {};
 
-	dirDynamicChart.restrict = 'E';
+	dirDynamicChart.restrict = DIRECTIVE_RESTRICTIONS.res_element;
 	dirDynamicChart.template = '<div>dynamic_chart_template_test</div>';
 	dirDynamicChart.controller = dynamicChartController;
-	dirDynamicChart.controllerAs = 'vm';
+	dirDynamicChart.controllerAs = VIEW_MODEL;
 	dirDynamicChart.link = function(scope, element, attrs) {
 	}
 
