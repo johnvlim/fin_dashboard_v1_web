@@ -24,7 +24,7 @@ bubbleChart.$inject = [ 'DIRECTIVE_RESTRICTIONS', 'VIEW_MODEL' ];
 
 dynamicChart.$inject = [ 'DIRECTIVE_RESTRICTIONS', 'VIEW_MODEL' ];
 
-function lineChart(DIRECTIVE_RESTRICTIONS, VIEW_MODEL) {
+function lineChart(DIRECTIVE_RESTRICTIONS) {
 	var dirLineChart = {};
 
 	dirLineChart.restrict = DIRECTIVE_RESTRICTIONS.res_element;
@@ -35,7 +35,7 @@ function lineChart(DIRECTIVE_RESTRICTIONS, VIEW_MODEL) {
 	return dirLineChart;
 }
 
-function barChart(DIRECTIVE_RESTRICTIONS, VIEW_MODEL) {
+function barChart(DIRECTIVE_RESTRICTIONS) {
 	var dirBarChart = {};
 
 	dirBarChart.restrict = DIRECTIVE_RESTRICTIONS.res_element;
@@ -46,13 +46,13 @@ function barChart(DIRECTIVE_RESTRICTIONS, VIEW_MODEL) {
 	return dirBarChart;
 }
 
-function doughnutChart(DIRECTIVE_RESTRICTIONS, VIEW_MODEL) {
+function doughnutChart(DIRECTIVE_RESTRICTIONS) {
 	var dirDoughnutChart = {};
 
 	dirDoughnutChart.restrict = DIRECTIVE_RESTRICTIONS.res_element;
-	dirDoughnutChart.template = '<div>doughnut_chart_template_test</div>';
+	dirDoughnutChart.templateUrl = 'docs/common/charts/doughnut-chart.html';
 	dirDoughnutChart.controller = doughnutChartController;
-	dirDoughnutChart.controllerAs = VIEW_MODEL;
+	dirDoughnutChart.controllerAs = 'doughnutChartController';
 	dirDoughnutChart.link = function(scope, element, attrs) {
 	}
 
