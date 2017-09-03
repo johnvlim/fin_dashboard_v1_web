@@ -79,13 +79,25 @@ function doughnutChartController() {
 	 * test (begin) src: http://jtblin.github.io/angular-chart.js/
 	 */
 	vm.chartData = [ 300, 500, 100 ];
-	vm.chartLabels = [ "Download Sales", "In-Store Sales", "Mail-Order Sales" ];
+	vm.chartLabels = [ 'Download Sales', 'In-Store Sales', 'Mail-Order Sales' ];
 	/*
 	 * test (end)
 	 */
 }
 
 function radarChartController() {
+	var vm = this;
+
+	/*
+	 * test (begin) src: http://jtblin.github.io/angular-chart.js/
+	 */
+	vm.chartData = [ [ 65, 59, 90, 81, 56, 55, 40 ],
+			[ 28, 48, 40, 19, 96, 27, 100 ] ];
+	vm.chartLabels = [ 'Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding',
+			'Cycling', 'Running' ];
+	/*
+	 * test (end)
+	 */
 }
 
 function pieChartController() {

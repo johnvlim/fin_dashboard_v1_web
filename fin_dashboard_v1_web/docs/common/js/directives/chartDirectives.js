@@ -53,21 +53,17 @@ function doughnutChart(DIRECTIVE_RESTRICTIONS) {
 	dirDoughnutChart.templateUrl = 'docs/common/charts/doughnut-chart.html';
 	dirDoughnutChart.controller = doughnutChartController;
 	dirDoughnutChart.controllerAs = 'doughnutChartController';
-	dirDoughnutChart.link = function(scope, element, attrs) {
-	}
 
 	return dirDoughnutChart;
 }
 
-function radarChart(DIRECTIVE_RESTRICTIONS, VIEW_MODEL) {
+function radarChart(DIRECTIVE_RESTRICTIONS) {
 	var dirRadarChart = {};
 
 	dirRadarChart.restrict = DIRECTIVE_RESTRICTIONS.res_element;
-	dirRadarChart.template = '<div>radar_chart_template_test</div>';
+	dirRadarChart.templateUrl = 'docs/common/charts/radar-chart.html';
 	dirRadarChart.controller = radarChartController;
-	dirRadarChart.controllerAs = VIEW_MODEL;
-	dirRadarChart.link = function(scope, element, attrs) {
-	}
+	dirRadarChart.controllerAs = 'radarChartController';
 
 	return dirRadarChart;
 }
