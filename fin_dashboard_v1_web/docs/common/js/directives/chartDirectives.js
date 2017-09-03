@@ -3,8 +3,7 @@ angular.module('fin_dashboard_web').directive('lineChart', lineChart)
 				doughnutChart).directive('radarChart', radarChart).directive(
 				'pieChart', pieChart).directive('polarAreaChart',
 				polarAreaChart).directive('horizontalBarChart',
-				horizontalBarChart).directive('bubbleChart', bubbleChart)
-		.directive('dynamicChart', dynamicChart);
+				horizontalBarChart).directive('bubbleChart', bubbleChart);
 
 lineChart.$inject = [ 'DIRECTIVE_RESTRICTIONS' ];
 
@@ -21,8 +20,6 @@ polarAreaChart.$inject = [ 'DIRECTIVE_RESTRICTIONS' ];
 horizontalBarChart.$inject = [ 'DIRECTIVE_RESTRICTIONS' ];
 
 bubbleChart.$inject = [ 'DIRECTIVE_RESTRICTIONS' ];
-
-dynamicChart.$inject = [ 'DIRECTIVE_RESTRICTIONS', 'VIEW_MODEL' ];
 
 function lineChart(DIRECTIVE_RESTRICTIONS) {
 	var dirLineChart = {};
@@ -101,7 +98,7 @@ function horizontalBarChart(DIRECTIVE_RESTRICTIONS) {
 	return dirHorizontalBarChart;
 }
 
-function bubbleChart(DIRECTIVE_RESTRICTIONS, VIEW_MODEL) {
+function bubbleChart(DIRECTIVE_RESTRICTIONS) {
 	var dirBubbleChart = {};
 
 	dirBubbleChart.restrict = DIRECTIVE_RESTRICTIONS.res_element;
@@ -110,17 +107,4 @@ function bubbleChart(DIRECTIVE_RESTRICTIONS, VIEW_MODEL) {
 	dirBubbleChart.controllerAs = 'bubbleChartController';
 
 	return dirBubbleChart;
-}
-
-function dynamicChart(DIRECTIVE_RESTRICTIONS, VIEW_MODEL) {
-	var dirDynamicChart = {};
-
-	dirDynamicChart.restrict = DIRECTIVE_RESTRICTIONS.res_element;
-	dirDynamicChart.template = '<div>dynamic_chart_template_test</div>';
-	dirDynamicChart.controller = dynamicChartController;
-	dirDynamicChart.controllerAs = VIEW_MODEL;
-	dirDynamicChart.link = function(scope, element, attrs) {
-	}
-
-	return dirDynamicChart;
 }

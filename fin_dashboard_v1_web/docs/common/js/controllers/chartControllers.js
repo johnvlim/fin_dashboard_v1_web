@@ -6,8 +6,7 @@ angular.module('fin_dashboard_web').controller('lineChartController',
 		pieChartController).controller('polarAreaChartController',
 		polarAreaChartController).controller('horizontalBarChartController',
 		horizontalBarChartController).controller('bubbleChartController',
-		bubbleChartController).controller('dynamicChartController',
-		dynamicChartController)
+		bubbleChartController);
 
 lineChartController.$inject = [ '$scope' ];
 
@@ -24,8 +23,6 @@ polarAreaChartController.$inject = [];
 horizontalBarChartController.$inject = [];
 
 bubbleChartController.$inject = [];
-
-dynamicChartController.$inject = [];
 
 function lineChartController($scope) {
 	var vm = this;
@@ -161,7 +158,4 @@ function bubbleChartController() {
 	/*
 	 * test (end)
 	 */
-}
-
-function dynamicChartController() {
 }
