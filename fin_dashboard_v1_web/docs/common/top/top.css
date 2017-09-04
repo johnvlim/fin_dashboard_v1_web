@@ -15,6 +15,7 @@ div.navbar a.navbar-brand span.brand-company-name {
 div.navbar a.navbar-brand span.brand-team-name {
 	font-family: 'Roboto', sans-serif;
 	font-size: 12px;
+	text-decoration: underline;
 }
 
 div.navbar div#topMenus {
@@ -23,6 +24,8 @@ div.navbar div#topMenus {
 }
 
 img#finastraBanner {
-	border: solid 1px #d3d3d3;
+	border: solid 1px #000000;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
 	width: 100%;
 }
