@@ -7,4 +7,8 @@ angular.module('fin_dashboard_web').constant('DIRECTIVE_RESTRICTIONS', {
 .constant('WS_CONFIG', {
 	host : 'localhost',
 	port : '8081'
+})
+
+.constant('API_JENKINS', {
+	base : 'http://localhost:8080/jenkins'
 });

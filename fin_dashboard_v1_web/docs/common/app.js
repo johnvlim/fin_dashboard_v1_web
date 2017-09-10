@@ -11,6 +11,11 @@ function doRouteConfig($stateProvider, $urlRouterProvider) {
 				templateUrl : 'docs/home/home.html',
 				controller : 'homeController',
 				controllerAs : 'homeController'
+			},
+			'build-summary@home' : {
+				templateUrl : 'docs/home/build-summary/build-summary.html',
+				controller : 'buildSummaryController',
+				controllerAs : 'buildSummaryController'
 			}
 		}
 	});

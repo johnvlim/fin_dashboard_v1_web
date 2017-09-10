@@ -30,13 +30,12 @@ function webSocketService($websocket, WS_CONFIG) {
 		webSocketServiceObj.wsData = wsData;
 	}
 
-	function confWebSocket() {
+	function confWebSocket(onMessageCallback) {
 		var wsUrl = 'ws://' + WS_CONFIG.host + ':' + WS_CONFIG.port
 				+ '/jenkins';
 		webSocketServiceObj.wsObj = $websocket(wsUrl);
 
-		webSocketServiceObj.wsObj.onMessage(function(msg) {
-		});
+		webSocketServiceObj.wsObj.onMessage(onMessageCallback);
 	}
 
 	return webSocketServiceObj;

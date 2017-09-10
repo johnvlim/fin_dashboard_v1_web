@@ -1,0 +1,7 @@
+div#buildSummaryRootContainer {
+	margin-top: 10px;
+}
+
+div#buildSummaryRootContainer div.panel-heading {
+	font-family: 'Alfa Slab One', cursive;
+}
