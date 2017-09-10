@@ -1,6 +1,7 @@
-angular.module('fin_dashboard_web',
-		[ 'ui.bootstrap', 'ui.router', 'chart.js', 'angularResizable' ])
-		.config(doRouteConfig);
+angular.module(
+		'fin_dashboard_web',
+		[ 'ui.bootstrap', 'ui.router', 'chart.js', 'angularResizable',
+				'ngWebSocket' ]).config(doRouteConfig);
 
 function doRouteConfig($stateProvider, $urlRouterProvider) {
 	$stateProvider.state('home', {
