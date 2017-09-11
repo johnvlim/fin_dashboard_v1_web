@@ -14,7 +14,8 @@ function buildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, httpService) {
 	vm.bootstrapViewModel = bootstrapViewModel;
 
 	function bootstrapViewModel() {
-		httpService.setHttpUrl(API_JENKINS.base);
+		var httpUrl = API_JENKINS.base + '/api/json';
+		httpService.setHttpUrl(httpUrl);
 		httpService.setHttpMethod(HTTP_REQUEST_METHOD.methodGet);
 		httpService.doGETRequest(doGETSuccessCallback_jenkinsBaseUrl,
 				doGETFailedCallback_jenkinsBaseUrl);

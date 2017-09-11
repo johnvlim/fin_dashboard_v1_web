@@ -12,7 +12,7 @@ angular
 		})
 
 		.constant('API_JENKINS', {
-			base : 'http://localhost:8080/jenkins/api/json'
+			base : 'http://localhost:8080/jenkins'
 		})
 
 		.constant('HTTP_REQUEST_METHOD', {

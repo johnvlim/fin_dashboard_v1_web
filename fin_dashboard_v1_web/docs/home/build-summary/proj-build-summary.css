@@ -2,8 +2,12 @@ div#projBuildSummaryRootContainer {
 	width: 100%;
 }
 
+div#projBuildSummaryRootContainer>table.table {
+	width: 100%;
+}
+
 div#projBuildSummaryRootContainer>table.table>thead>tr>th {
-	border-bottom: solid 1px #dff0d8;
+	border-bottom: solid 1px #000000;
 	line-height: 15px;
 }
 
