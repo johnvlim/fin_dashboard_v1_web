@@ -4,7 +4,13 @@
 			<div class='panel-heading panel-title'>
 				<span class='glyphicon glyphicon-wrench'></span> Build Summary
 			</div>
-			<div class='panel panel-body'></div>
+			<div class='panel panel-body'>
+				<div class='row' ng-repeat='i in buildSummaryController.jenkinsJobs'>
+					<div class='col-md-12 col-sm-12 col-xs-12'>
+						<proj-build-summary></proj-build-summary>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

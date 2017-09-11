@@ -10,6 +10,7 @@ function buildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, httpService) {
 
 	var vm = this;
 	vm.jenkinsBaseUrlData = {};
+	vm.jenkinsJobs = {};
 	vm.bootstrapViewModel = bootstrapViewModel;
 
 	function bootstrapViewModel() {
@@ -25,6 +26,7 @@ function buildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, httpService) {
 		$(DOM_BUILD_SUMMARY_ROOT_CONTAINER_ID).LoadingOverlay('hide');
 
 		vm.jenkinsBaseUrlData = data;
+		vm.jenkinsJobs = data.data.jobs;
 	}
 
 	function doGETFailedCallback_jenkinsBaseUrl(e) {

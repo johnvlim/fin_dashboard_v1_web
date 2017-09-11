@@ -1,7 +1,15 @@
-angular.module('fin_dashboard_web').directive('projBuildSummaryDirective',
-		projBuildSummaryDirective);
+angular.module('fin_dashboard_web').directive('projBuildSummary',
+		projBuildSummary);
 
-projBuildSummaryDirective.$inject = [];
+projBuildSummary.$inject = [ 'DIRECTIVE_RESTRICTIONS' ];
 
-function projBuildSummaryDirective() {
+function projBuildSummary(DIRECTIVE_RESTRICTIONS) {
+	var dirProjBuildSummary = {};
+
+	dirProjBuildSummary.restrict = DIRECTIVE_RESTRICTIONS.res_element;
+	dirProjBuildSummary.templateUrl = 'docs/home/build-summary/proj-build-summary.html';
+	dirProjBuildSummary.controller = 'projBuildSummaryController';
+	dirProjBuildSummary.controllerAs = 'projBuildSummaryController';
+
+	return dirProjBuildSummary;
 }
