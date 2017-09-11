@@ -1,25 +1,19 @@
-div#projBuildSummaryRootContainer {
-	width: 100%;
-}
-
-div#projBuildSummaryRootContainer>table.table {
-	width: 100%;
-}
-
-div#projBuildSummaryRootContainer>table.table>thead>tr>th {
-	border-bottom: solid 1px #000000;
+div#projBuildSummaryRootContainer>div.panel>div.panel-heading {
 	line-height: 15px;
 }
 
-div#projBuildSummaryRootContainer>table.table>thead>tr>th span.job-name-header
+div#projBuildSummaryRootContainer>div.panel>div.panel-heading>span.job-name-title>a
 	{
+	color: #ffffff;
 	font-family: 'Roboto', sans-serif;
 	font-size: 15px;
+	font-weight: bold;
 }
 
-div#projBuildSummaryRootContainer>table.table>thead>tr>th span.job-url {
+div#projBuildSummaryRootContainer>div.panel>div.panel-heading>span.job-name-url
+	{
 	font-family: 'Roboto', sans-serif;
 	font-size: 12px;
-	padding-left: 18px;
+	padding-left: 20px;
 	text-decoration: underline;
 }

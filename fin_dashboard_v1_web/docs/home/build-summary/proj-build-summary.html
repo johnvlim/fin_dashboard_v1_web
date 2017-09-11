@@ -1,22 +1,17 @@
 <div class='row'>
 	<div class='col-md-12 col-sm-12 col-xs-12'>
-		<div id='projBuildSummaryRootContainer'>
-			<table class='table'>
-				<thead>
-					<tr>
-						<th><span class='glyphicon glyphicon-asterisk'></span> <span
-							class='job-name-header'>{{projBuildSummaryController.jenkinsJob.name}}</span><br>
-							<span class='job-url'><a
-								href={{projBuildSummaryController.jenkinsJob.url}}>{{projBuildSummaryController.jenkinsJob.url}}</a></span>
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td></td>
-					</tr>
-				</tbody>
-			</table>
+		<div class='panel panel-group' id='projBuildSummaryRootContainer'>
+			<div class='panel panel-primary'>
+				<div class='panel-heading panel-title'>
+					<span class='glyphicon glyphicon-asterisk'></span> <span
+						class='job-name-title'><a
+						data-parent='#projBuildSummaryRootContainer'
+						data-toggle='collapse' href='#buildHistoryCollapse'>
+							{{projBuildSummaryController.jenkinsJob.name}}</a></span><br> <span
+						class='job-name-url'>{{projBuildSummaryController.jenkinsJob.url}}</span>
+				</div>
+				<div class='collapse-in panel-collapse' id='buildHistoryCollapse'></div>
+			</div>
 		</div>
 	</div>
 </div>
