@@ -1,0 +1,21 @@
+div#projBuildSummaryRootContainer {
+	width: 100%;
+}
+
+div#projBuildSummaryRootContainer>table.table>thead>tr>th {
+	border-bottom: solid 1px #dff0d8;
+	line-height: 15px;
+}
+
+div#projBuildSummaryRootContainer>table.table>thead>tr>th span.job-name-header
+	{
+	font-family: 'Roboto', sans-serif;
+	font-size: 15px;
+}
+
+div#projBuildSummaryRootContainer>table.table>thead>tr>th span.job-url {
+	font-family: 'Roboto', sans-serif;
+	font-size: 12px;
+	padding-left: 18px;
+	text-decoration: underline;
+}

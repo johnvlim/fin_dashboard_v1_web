@@ -10,6 +10,8 @@ function projBuildSummary(DIRECTIVE_RESTRICTIONS) {
 	dirProjBuildSummary.templateUrl = 'docs/home/build-summary/proj-build-summary.html';
 	dirProjBuildSummary.controller = 'projBuildSummaryController';
 	dirProjBuildSummary.controllerAs = 'projBuildSummaryController';
+	dirProjBuildSummary.link = function(scope, elem, attr) {
+	}
 
 	return dirProjBuildSummary;
 }

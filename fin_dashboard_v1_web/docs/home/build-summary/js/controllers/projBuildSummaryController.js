@@ -1,7 +1,10 @@
 angular.module('fin_dashboard_web').controller('projBuildSummaryController',
 		projBuildSummaryController);
 
-projBuildSummaryController.$inject = [];
+projBuildSummaryController.$inject = [ '$scope' ];
 
-function projBuildSummaryController() {
+function projBuildSummaryController($scope) {
+	var vm = this;
+
+	vm.jenkinsJob = $scope.i;
 }
