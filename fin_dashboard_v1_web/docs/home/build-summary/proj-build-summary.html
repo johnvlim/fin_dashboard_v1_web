@@ -1,19 +1,21 @@
 <div class='row'>
 	<div class='col-md-12 col-sm-12 col-xs-12'>
 		<div class='panel panel-group' id='projBuildSummaryRootContainer'>
-			<div class='panel panel-default'>
+			<div class='panel'
+				ng-class='projBuildSummaryController.isCurrentBuildSuccess?"panel-success":"panel-danger"'>
 				<div class='panel-heading panel-title'>
 					<span class='job-name-title'><a
 						data-parent='#projBuildSummaryRootContainer'
 						data-toggle='collapse' href='#projBuildSummaryCollapse'>
 							{{projBuildSummaryController.jenkinsJob.name}}</a></span><br> <span
 						class='job-name-url'><a
-						href='{{projBuildSummaryController.jenkinsJob.url}}'>{{projBuildSummaryController.jenkinsJob.url}}</a></span>
+						href='{{projBuildSummaryController.jenkinsJob.url}}'><u_>{{projBuildSummaryController.jenkinsJob.url}}</u_></a></span>
 				</div>
 				<div class='collapse panel-collapse' id='projBuildSummaryCollapse'>
 					<div class='panel-body'>
 						<div class='panel panel-group' id='buildHistoryRootContainer'>
-							<div class='panel panel-default'>
+							<div class='panel'
+								ng-class='projBuildSummaryController.isCurrentBuildSuccess?"panel-success":"panel-danger"'>
 								<div class='panel-heading panel-title'>
 									<span class='build-history-title'><a
 										data-parent='#buildHistoryRootContainer'
@@ -25,9 +27,7 @@
 										<ul class='build-history-content'>
 											<li ng-if='v'
 												ng-repeat='(k,v) in projBuildSummaryController.jenkinsJobBuildsHistory'>
-												{{k}} [{{v.number}}] <a
-												href={{projBuildSummaryController.jenkinsJobBuildsHistory.lastBuild.url}}>
-													{{v.url}}</a>
+												{{k}} <br>[Build # {{v.number}}] <a href='{{v.url}}'><u_>{{v.url}}</u_></a>
 											</li>
 										</ul>
 									</div>

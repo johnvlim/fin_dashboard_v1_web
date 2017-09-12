@@ -32,14 +32,20 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, $scope,
 		vm.jenkinsJob = $scope.i;
 		vm.jenkinsJobBuilds = data.data.builds;
 		vm.jenkinsJobBuildsHistory = {
-			'Last Build' : data.data.lastBuild,
-			'Last Completed Build' : data.data.lastCompletedBuild,
-			'Last Failed Build' : data.data.lastFailedBuild,
-			'Last Stable Build' : data.data.lastStableBuild,
-			'Last Successful Build' : data.data.lastSuccessfulBuild,
-			'Last Unstable Build' : data.data.lastUnstableBuild,
-			'Last Unsuccessful Build' : data.data.lastUnsuccessfulBuild
+			'[Build] -> "last"' : data.data.lastBuild,
+			'[Build] -> "last_completed"' : data.data.lastCompletedBuild,
+			'[Build] -> "last_failed"' : data.data.lastFailedBuild,
+			'[Build] -> "last_stable"' : data.data.lastStableBuild,
+			'[Build] -> "last_successful"' : data.data.lastSuccessfulBuild,
+			'[Build] -> "last_unstable"' : data.data.lastUnstableBuild,
+			'[Build] -> "last_unsuccessful"' : data.data.lastUnsuccessfulBuild
 		};
+
+		if (data.data.lastSuccessfulBuild.number == data.data.lastCompletedBuild.number) {
+			vm.isCurrentBuildSuccess = true;
+		} else {
+			vm.isCurrentBuildSuccess = false;
+		}
 	}
 
 	function doGETFailedCallback_jenkinsProjBuildsUrl(e) {
