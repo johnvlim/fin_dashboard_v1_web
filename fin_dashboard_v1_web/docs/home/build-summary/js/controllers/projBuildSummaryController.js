@@ -32,13 +32,13 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, $scope,
 		vm.jenkinsJob = $scope.i;
 		vm.jenkinsJobBuilds = data.data.builds;
 		vm.jenkinsJobBuildsHistory = {
-			'[Build] -> "last"' : data.data.lastBuild,
-			'[Build] -> "last_completed"' : data.data.lastCompletedBuild,
-			'[Build] -> "last_failed"' : data.data.lastFailedBuild,
-			'[Build] -> "last_stable"' : data.data.lastStableBuild,
-			'[Build] -> "last_successful"' : data.data.lastSuccessfulBuild,
-			'[Build] -> "last_unstable"' : data.data.lastUnstableBuild,
-			'[Build] -> "last_unsuccessful"' : data.data.lastUnsuccessfulBuild
+			'[Build] -- "last"' : data.data.lastBuild,
+			'[Build] -- "last_completed"' : data.data.lastCompletedBuild,
+			'[Build] -- "last_failed"' : data.data.lastFailedBuild,
+			'[Build] -- "last_stable"' : data.data.lastStableBuild,
+			'[Build] -- "last_successful"' : data.data.lastSuccessfulBuild,
+			'[Build] -- "last_unstable"' : data.data.lastUnstableBuild,
+			'[Build] -- "last_unsuccessful"' : data.data.lastUnsuccessfulBuild
 		};
 
 		if (data.data.lastSuccessfulBuild.number == data.data.lastCompletedBuild.number) {
