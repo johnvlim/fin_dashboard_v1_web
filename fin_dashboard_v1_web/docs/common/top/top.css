@@ -18,7 +18,7 @@ div.navbar a.navbar-brand span.brand-team-name {
 	text-decoration: underline;
 }
 
-div.navbar div#topMenus {
+div#topMenus {
 	font-family: 'Roboto', sans-serif;
 	font-size: 15px;
 }

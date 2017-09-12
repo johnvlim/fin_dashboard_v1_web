@@ -1,3 +1,20 @@
+div#buildHistoryCollapse>div.panel-body>ul.build-history-content {
+	font-family: 'Roboto', sans-serif;
+	font-size: 12px;
+}
+
+div#buildHistoryRootContainer>div.panel>div.panel-heading {
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+
+div#buildHistoryRootContainer>div.panel>div.panel-heading>span.build-history-title>a
+	{
+	color: #ffffff;
+	font-family: 'Roboto', sans-serif;
+	font-size: 12px;
+}
+
 div#projBuildSummaryRootContainer>div.panel>div.panel-heading {
 	line-height: 15px;
 }
@@ -7,13 +24,11 @@ div#projBuildSummaryRootContainer>div.panel>div.panel-heading>span.job-name-titl
 	color: #ffffff;
 	font-family: 'Roboto', sans-serif;
 	font-size: 15px;
-	font-weight: bold;
 }
 
-div#projBuildSummaryRootContainer>div.panel>div.panel-heading>span.job-name-url
+div#projBuildSummaryRootContainer>div.panel>div.panel-heading>span.job-name-url>a
 	{
+	color: #ffffff;
 	font-family: 'Roboto', sans-serif;
 	font-size: 12px;
-	padding-left: 20px;
-	text-decoration: underline;
 }
