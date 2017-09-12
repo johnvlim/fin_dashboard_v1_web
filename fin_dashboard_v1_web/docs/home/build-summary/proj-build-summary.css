@@ -10,8 +10,7 @@ div#buildHistoryRootContainer>div.panel>div.panel-heading {
 
 div#buildHistoryRootContainer>div.panel>div.panel-heading>span.build-history-title>a
 	{
-	color: #ffffff;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Alfa Slab One', cursive;
 	font-size: 12px;
 }
 
@@ -21,14 +20,12 @@ div#projBuildSummaryRootContainer>div.panel>div.panel-heading {
 
 div#projBuildSummaryRootContainer>div.panel>div.panel-heading>span.job-name-title>a
 	{
-	color: #ffffff;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Alfa Slab One', cursive;
 	font-size: 15px;
 }
 
 div#projBuildSummaryRootContainer>div.panel>div.panel-heading>span.job-name-url>a
 	{
-	color: #ffffff;
 	font-family: 'Roboto', sans-serif;
 	font-size: 12px;
 }

@@ -20,13 +20,13 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, $scope,
 		var httpUrl = API_JENKINS.base + '/job/' + $scope.i.name + '/api/json'
 		httpService.setHttpUrl(httpUrl);
 		httpService.setHttpMethod(HTTP_REQUEST_METHOD.methodGet);
-		httpService.doGETRequest(doGETSuccessCallback_jenkinsProjBuildUrl,
-				doGETFailedCallback_jenkinsProjBuildUrl);
+		httpService.doGETRequest(doGETSuccessCallback_jenkinsProjBuildsUrl,
+				doGETFailedCallback_jenkinsProjBuildsUrl);
 
 		$(DOM_PROJ_BUILD_SUMMARY_ROOT_CONTAINER_ID).LoadingOverlay('show');
 	}
 
-	function doGETSuccessCallback_jenkinsProjBuildUrl(data) {
+	function doGETSuccessCallback_jenkinsProjBuildsUrl(data) {
 		$(DOM_PROJ_BUILD_SUMMARY_ROOT_CONTAINER_ID).LoadingOverlay('hide');
 
 		vm.jenkinsJob = $scope.i;
@@ -42,7 +42,7 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, $scope,
 		};
 	}
 
-	function doGETFailedCallback_jenkinsProjBuildUrl(e) {
+	function doGETFailedCallback_jenkinsProjBuildsUrl(e) {
 		$(DOM_PROJ_BUILD_SUMMARY_ROOT_CONTAINER_ID).LoadingOverlay('hide');
 	}
 
