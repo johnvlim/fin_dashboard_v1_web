@@ -12,7 +12,7 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, $scope,
 	var vm = this;
 	vm.jenkinsJob = {};
 	vm.jenkinsJobBuilds = {};
-	vm.jenkinsJobBuildsHistory = {};
+	vm.jenkinsJobPermalinks = {};
 	vm.bootstrapViewModel = bootstrapViewModel;
 	vm.isCurrentBuildSuccess = null;
 
@@ -20,18 +20,16 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, $scope,
 		var httpUrl = API_JENKINS.base + '/job/' + $scope.i.name + '/api/json'
 		httpService.setHttpUrl(httpUrl);
 		httpService.setHttpMethod(HTTP_REQUEST_METHOD.methodGet);
-		httpService.doGETRequest(doGETSuccessCallback_jenkinsProjBuildsUrl,
-				doGETFailedCallback_jenkinsProjBuildsUrl);
+		httpService.doGETRequest(doGETSuccessCallback_jenkinsJobUrl,
+				doGETFailedCallback_jenkinsJobUrl);
 
 		$(DOM_PROJ_BUILD_SUMMARY_ROOT_CONTAINER_ID).LoadingOverlay('show');
 	}
 
-	function doGETSuccessCallback_jenkinsProjBuildsUrl(data) {
-		$(DOM_PROJ_BUILD_SUMMARY_ROOT_CONTAINER_ID).LoadingOverlay('hide');
-
+	function doGETSuccessCallback_jenkinsJobUrl(data) {
 		vm.jenkinsJob = $scope.i;
 		vm.jenkinsJobBuilds = data.data.builds;
-		vm.jenkinsJobBuildsHistory = {
+		vm.jenkinsJobPermalinks = {
 			'[Build] -- "last"' : data.data.lastBuild,
 			'[Build] -- "last_completed"' : data.data.lastCompletedBuild,
 			'[Build] -- "last_failed"' : data.data.lastFailedBuild,
@@ -46,10 +44,70 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, $scope,
 		} else {
 			vm.isCurrentBuildSuccess = false;
 		}
+
+		var httpUrl = [];
+		angular.forEach(vm.jenkinsJobBuilds, function(jenkinsJobBuild) {
+			httpUrl.push(jenkinsJobBuild.url + '/api/json');
+		});
+		httpService.setHttpUrl(httpUrl);
+		httpService.doGETAllRequest()
+		.then(doGETSuccessCallback_jenkinsJobBuildUrl)
+		.catch(doGETFailedCallback_jenkinsJobBuildUrl);
 	}
 
-	function doGETFailedCallback_jenkinsProjBuildsUrl(e) {
+	function doGETFailedCallback_jenkinsJobUrl(e) {
 		$(DOM_PROJ_BUILD_SUMMARY_ROOT_CONTAINER_ID).LoadingOverlay('hide');
+	}
+
+	function doGETSuccessCallback_jenkinsJobBuildUrl(data) {
+		appendJenkinsJobBuild(data);
+
+		var httpUrl = [];
+		angular.forEach(data, function(datum) {
+			httpUrl.push(datum.data.url + '/consoleText');
+		});
+		httpService.setHttpUrl(httpUrl);
+		httpService.doGETAllRequest()
+		.then(doGETSuccessCallback_jenkinsJobBuildConsoleOutputUrl)
+		.catch(doGETFailedCallback_jenkinsJobBuildConsoleOutputUrl);
+	}
+
+	function doGETFailedCallback_jenkinsJobBuildUrl(e) {
+		$(DOM_PROJ_BUILD_SUMMARY_ROOT_CONTAINER_ID).LoadingOverlay('hide');
+	}
+
+	function doGETSuccessCallback_jenkinsJobBuildConsoleOutputUrl(data) {
+		appendJenkinsJobBuildConsoleOutput(data);
+
+		$(DOM_PROJ_BUILD_SUMMARY_ROOT_CONTAINER_ID).LoadingOverlay('hide');
+	}
+
+	function doGETFailedCallback_jenkinsJobBuildConsoleOutputUrl(e) {
+		$(DOM_PROJ_BUILD_SUMMARY_ROOT_CONTAINER_ID).LoadingOverlay('hide');
+	}
+
+	function appendJenkinsJobBuild(data) {
+		angular.forEach(vm.jenkinsJobBuilds, function(jenkinsJobBuild) {
+			angular.forEach(data, function(datum) {
+				if(jenkinsJobBuild.number == datum.data.number) {
+					jenkinsJobBuild.build = datum.data;
+				}
+			});
+		});
+	}
+
+	function appendJenkinsJobBuildConsoleOutput(data) {
+		angular.forEach(vm.jenkinsJobBuilds, function(jenkinsJobBuild) {
+			angular.forEach(data, function(datum) {
+				var datumConfigUrl = datum.config.url;
+				var datumConfigUrlSplit = datumConfigUrl.split('/');
+				var idx_jobBuildNumber = datumConfigUrlSplit.length-3;
+
+				if(jenkinsJobBuild.number == datumConfigUrlSplit[idx_jobBuildNumber]){
+					jenkinsJobBuild.console_output = datum;
+				}
+			});
+		});
 	}
 
 	vm.bootstrapViewModel();

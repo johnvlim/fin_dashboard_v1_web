@@ -1,6 +1,19 @@
-div#buildHistoryCollapse>div.panel-body>ul.build-history-content {
+div#buildHistoryCollapse>div.panel-body>table>tbody>tr>td {
+	padding: 10px;
+}
+
+div#buildHistoryCollapse>div.panel-body>table>tbody>tr>td.build-history-permalinks
+	{
 	font-family: 'Roboto', sans-serif;
 	font-size: 12px;
+	vertical-align: top;
+}
+
+div#buildHistoryCollapse>div.panel-body>table>tbody>tr>td.build-history-details
+	{
+	font-family: 'Roboto', sans-serif;
+	font-size: 12px;
+	vertical-align: top;
 }
 
 div#buildHistoryRootContainer>div.panel>div.panel-heading {

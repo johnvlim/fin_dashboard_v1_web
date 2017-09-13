@@ -25,13 +25,30 @@
 								</div>
 								<div class='collapse panel-collaspe' id='buildHistoryCollapse'>
 									<div class='panel-body'>
-										<ul class='build-history-content'>
-											<li ng-if='v'
-												ng-repeat='(k,v) in projBuildSummaryController.jenkinsJobBuildsHistory'>
-												{{k}} <br>[Build # {{v.number}}] <a href='{{v.url}}'
-												target='_blank'><u_>{{v.url}}</u_></a>
-											</li>
-										</ul>
+										<table>
+											<tbody>
+												<tr>
+													<td class='build-history-permalinks'>
+														<ul>
+															<li ng-if='v'
+																ng-repeat='(k,v) in projBuildSummaryController.jenkinsJobPermalinks'>
+																{{k}} <br>[Build # {{v.number}}] <a
+																href='{{v.url}}' target='_blank'><u_>{{v.url}}</u_></a>
+															</li>
+														</ul>
+													</td>
+													<td class='build-history-details'>
+														<ul>
+															<li
+																ng-repeat='(k,v) in projBuildSummaryController.jenkinsJobBuilds'>
+																[Build # {{v.number}}] <u_> <br>
+																<a href='{{v.url}}' target='_blank'>{{v.url}}</a></u_>
+															</li>
+														</ul>
+													</td>
+												</tr>
+											</tbody>
+										</table>
 									</div>
 								</div>
 							</div>

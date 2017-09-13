@@ -27,5 +27,7 @@ img#finastraBanner {
 	border: solid 1px #000000;
 	border-bottom-left-radius: 20px;
 	border-bottom-right-radius: 20px;
+	height: 100px;
+	object-fit: cover;
 	width: 100%;
 }
