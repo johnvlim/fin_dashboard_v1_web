@@ -2,6 +2,13 @@ div#buildHistoryCollapse>div.panel-body>table>tbody>tr>td {
 	padding: 10px;
 }
 
+div#buildHistoryCollapse>div.panel-body>table>tbody>tr>td.build-history-details
+	{
+	font-family: 'Roboto', sans-serif;
+	font-size: 12px;
+	vertical-align: top;
+}
+
 div#buildHistoryCollapse>div.panel-body>table>tbody>tr>td.build-history-permalinks
 	{
 	font-family: 'Roboto', sans-serif;
@@ -9,11 +16,10 @@ div#buildHistoryCollapse>div.panel-body>table>tbody>tr>td.build-history-permalin
 	vertical-align: top;
 }
 
-div#buildHistoryCollapse>div.panel-body>table>tbody>tr>td.build-history-details
+div#buildHistoryCollapse>div.panel-body>table>tbody>tr>td>ul.list-group>li.list-group-item
 	{
-	font-family: 'Roboto', sans-serif;
-	font-size: 12px;
-	vertical-align: top;
+	padding-bottom: 0px;
+	padding-top: 0px;
 }
 
 div#buildHistoryRootContainer>div.panel>div.panel-heading {

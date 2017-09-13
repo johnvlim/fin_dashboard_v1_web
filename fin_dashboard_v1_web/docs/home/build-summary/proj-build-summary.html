@@ -29,8 +29,8 @@
 											<tbody>
 												<tr>
 													<td class='build-history-permalinks'>
-														<ul>
-															<li ng-if='v'
+														<ul class='list-group'>
+															<li class='list-group-item' ng-if='v'
 																ng-repeat='(k,v) in projBuildSummaryController.jenkinsJobPermalinks'>
 																{{k}} <br>[Build # {{v.number}}] <a
 																href='{{v.url}}' target='_blank'><u_>{{v.url}}</u_></a>
@@ -38,8 +38,8 @@
 														</ul>
 													</td>
 													<td class='build-history-details'>
-														<ul>
-															<li
+														<ul class='list-group'>
+															<li class='list-group-item'
 																ng-repeat='(k,v) in projBuildSummaryController.jenkinsJobBuilds'>
 																[Build # {{v.number}}] <u_> <br>
 																<a href='{{v.url}}' target='_blank'>{{v.url}}</a></u_>

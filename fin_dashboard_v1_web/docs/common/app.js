@@ -1,7 +1,7 @@
 angular.module(
 		'fin_dashboard_web',
 		[ 'ui.bootstrap', 'ui.router', 'chart.js', 'angularResizable',
-				'ngWebSocket' ]).config(doRouteConfig);
+				'ngWebSocket' ]).config(doRouteConfig).run(doRunConfig);
 
 function doRouteConfig($stateProvider, $urlRouterProvider) {
 	$stateProvider.state('home', {
@@ -21,4 +21,11 @@ function doRouteConfig($stateProvider, $urlRouterProvider) {
 	});
 
 	$urlRouterProvider.otherwise('/home');
+}
+
+function doRunConfig(BROADCAST_MESSAGES, $rootScope, webSocketService) {
+	webSocketService.confWebSocket(onMessageCallback);
+}
+
+function onMessageCallback(BROADCAST_MESSAGES, $rootScope) {
 }

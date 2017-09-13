@@ -1,10 +1,10 @@
 angular.module('fin_dashboard_web').controller('projBuildSummaryController',
 		projBuildSummaryController);
 
-projBuildSummaryController.$inject = [ 'API_JENKINS', 'HTTP_REQUEST_METHOD',
+projBuildSummaryController.$inject = [ 'API_JENKINS', 'HTTP_REQUEST_METHOD', 'BROADCAST_MESSAGES', 
 		'$scope', 'httpService' ];
 
-function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, $scope,
+function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_MESSAGES, $scope,
 		httpService) {
 	const
 	DOM_PROJ_BUILD_SUMMARY_ROOT_CONTAINER_ID = 'div#projBuildSummaryRootContainer';
@@ -109,6 +109,10 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, $scope,
 			});
 		});
 	}
+
+	$scope.$on(BROADCAST_MESSAGES.doJenkinsBuild, function() {
+		alert('received broadcasted messages');
+	});
 
 	vm.bootstrapViewModel();
 }

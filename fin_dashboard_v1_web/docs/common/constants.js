@@ -26,4 +26,8 @@ angular
 				'HTTP_REQUEST_HEADER',
 				{
 					Authorization : 'Basic YWRtaW46OWRiYjhmMTE0YWVjNDMzNDkyMmQzYmFkNzdhZjhiMjQ='
-				});
+				})
+
+		.constant('BROADCAST_MESSAGES', {
+			doJenkinsBuild : 'doJenkinsBuild'
+		});
