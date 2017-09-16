@@ -15,19 +15,33 @@
 				<div class='collapse panel-collapse' id='projBuildSummaryCollapse'>
 					<div class='panel-body'>
 						<div id='projBuildPermalinksRootContainer'>
-							<u_>Permalinks</u_>
+							<span class='title'><u_>Permalinks</u_></span>
 						</div>
 						<ul>
 							<li
 								ng-repeat='(k,v) in projBuildSummaryController.jenkinsJobPermalinks'
 								ng-if='!(v == null)'>{{k}}<br>[Buld
-								#{{v.number}}]:&nbsp<u_>{{v.url}}</u_>
+								#{{v.number}}]:&nbsp<a href={{v.url}} target='_blank'>{{v.url}}</a>
 							</li>
 						</ul>
 						<hr>
-						<div id='projBuildHistoryRootContainer'>Build History</div>
+						<div id='projBuildHistoryRootContainer'>
+							<span class='title'><u_>Build History</u_></span>
+							<table class='table'>
+								<thead>
+									<tr
+										ng-class='projBuildSummaryController.isCurrentBuildSuccess?"success":"danger"'>
+										<td>Build #</td>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
 						<hr>
-						<div id='projBuildTestRootContainer'>Test</div>
+						<div id='projBuildTestRootContainer'>
+							<span class='title'><u_>Test</u_></span>
+						</div>
 						<hr>
 					</div>
 				</div>

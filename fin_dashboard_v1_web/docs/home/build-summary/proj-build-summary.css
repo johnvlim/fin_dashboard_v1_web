@@ -1,6 +1,15 @@
-div#projBuildHistoryRootContainer, div#projBuildPermalinksRootContainer,
-	div#projBuildTestRootContainer {
+div#projBuildHistoryRootContainer>span.title, div#projBuildPermalinksRootContainer>span.title,
+	div#projBuildTestRootContainer>span.title {
 	font-size: 15px;
+}
+
+div#projBuildHistoryRootContainer>table {
+	width: 75%
+}
+
+div#projBuildHistoryRootContainer>table>thead>tr>td {
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
 }
 
 div#projBuildSummaryCollapse {
