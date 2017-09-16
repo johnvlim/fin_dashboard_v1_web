@@ -3,5 +3,6 @@ div#buildSummaryRootContainer {
 }
 
 div#buildSummaryRootContainer>div.panel-heading {
-	font-family: 'Alfa Slab One', cursive;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: bold;
 }

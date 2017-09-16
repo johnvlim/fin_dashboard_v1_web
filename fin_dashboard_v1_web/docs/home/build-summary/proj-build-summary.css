@@ -1,36 +1,11 @@
-div#buildHistoryCollapse>div.panel-body>table>tbody>tr>td {
-	padding: 10px;
-}
-
-div#buildHistoryCollapse>div.panel-body>table>tbody>tr>td.build-history-details
-	{
-	font-family: 'Roboto', sans-serif;
-	font-size: 12px;
-	vertical-align: top;
-}
-
-div#buildHistoryCollapse>div.panel-body>table>tbody>tr>td.build-history-permalinks
-	{
-	font-family: 'Roboto', sans-serif;
-	font-size: 12px;
-	vertical-align: top;
-}
-
-div#buildHistoryCollapse>div.panel-body>table>tbody>tr>td>ul.list-group>li.list-group-item
-	{
-	padding-bottom: 0px;
-	padding-top: 0px;
-}
-
-div#buildHistoryRootContainer>div.panel>div.panel-heading {
-	padding-bottom: 5px;
-	padding-top: 5px;
-}
-
-div#buildHistoryRootContainer>div.panel>div.panel-heading>span.build-history-title>a
-	{
-	font-family: 'Alfa Slab One', cursive;
+div#projBuildHistoryRootContainer, div#projBuildPermalinksRootContainer,
+	div#projBuildTestRootContainer {
 	font-size: 15px;
+}
+
+div#projBuildSummaryCollapse {
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: 12px;
 }
 
 div#projBuildSummaryRootContainer>div.panel>div.panel-heading {
@@ -39,12 +14,13 @@ div#projBuildSummaryRootContainer>div.panel>div.panel-heading {
 
 div#projBuildSummaryRootContainer>div.panel>div.panel-heading>span.job-name-title>a
 	{
-	font-family: 'Alfa Slab One', cursive;
+	font-family: 'Ubuntu', sans-serif;
 	font-size: 15px;
+	font-weight: bold;
 }
 
 div#projBuildSummaryRootContainer>div.panel>div.panel-heading>span.job-name-url>a
 	{
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 	font-size: 12px;
 }

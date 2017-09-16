@@ -10,49 +10,25 @@
 							{{projBuildSummaryController.jenkinsJob.name}}</a></span><br> <span
 						class='job-name-url'><a
 						href='{{projBuildSummaryController.jenkinsJob.url}}'
-						target='_blank'><u_>{{projBuildSummaryController.jenkinsJob.url}}</u_></a></span>
+						target='_blank'>URL:&nbsp<u_>{{projBuildSummaryController.jenkinsJob.url}}</u_></a></span>
 				</div>
 				<div class='collapse panel-collapse' id='projBuildSummaryCollapse'>
 					<div class='panel-body'>
-						<div class='panel panel-group' id='buildHistoryRootContainer'>
-							<div class='panel'
-								ng-class='projBuildSummaryController.isCurrentBuildSuccess?"panel-success":"panel-danger"'>
-								<div class='panel-heading panel-title'>
-									<span class='build-history-title'><a
-										data-parent='#buildHistoryRootContainer'
-										data-toggle='collapse' href='#buildHistoryCollapse'>build_history
-									</a></span>
-								</div>
-								<div class='collapse panel-collaspe' id='buildHistoryCollapse'>
-									<div class='panel-body'>
-										<table>
-											<tbody>
-												<tr>
-													<td class='build-history-permalinks'>
-														<ul class='list-group'>
-															<li class='list-group-item' ng-if='v'
-																ng-repeat='(k,v) in projBuildSummaryController.jenkinsJobPermalinks'>
-																{{k}} <br>[Build # {{v.number}}] <a
-																href='{{v.url}}' target='_blank'><u_>{{v.url}}</u_></a>
-															</li>
-														</ul>
-													</td>
-													<td class='build-history-details'>
-														<ul class='list-group'>
-															<li class='list-group-item'
-																ng-repeat='(k,v) in projBuildSummaryController.jenkinsJobBuilds'>
-																[Build # {{v.number}}] <u_> <br>
-																<a href='{{v.url}}' target='_blank'>{{v.url}}</a></u_>
-															</li>
-														</ul>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
+						<div id='projBuildPermalinksRootContainer'>
+							<u_>Permalinks</u_>
 						</div>
+						<ul>
+							<li
+								ng-repeat='(k,v) in projBuildSummaryController.jenkinsJobPermalinks'
+								ng-if='!(v == null)'>{{k}}<br>[Buld
+								#{{v.number}}]:&nbsp<u_>{{v.url}}</u_>
+							</li>
+						</ul>
+						<hr>
+						<div id='projBuildHistoryRootContainer'>Build History</div>
+						<hr>
+						<div id='projBuildTestRootContainer'>Test</div>
+						<hr>
 					</div>
 				</div>
 			</div>

@@ -9,18 +9,18 @@ div.navbar a.navbar-brand {
 }
 
 div.navbar a.navbar-brand span.brand-company-name {
-	font-family: 'Alfa Slab One', cursive;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: bold;
 }
 
 div.navbar a.navbar-brand span.brand-team-name {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 	font-size: 12px;
 	text-decoration: underline;
 }
 
 div#topMenus {
-	font-family: 'Roboto', sans-serif;
-	font-size: 15px;
+	font-family: 'Ubuntu', sans-serif;
 }
 
 img#finastraBanner {
