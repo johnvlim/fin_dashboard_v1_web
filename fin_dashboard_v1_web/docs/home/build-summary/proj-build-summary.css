@@ -13,6 +13,12 @@ div#projBuildHistoryRootContainer>table>thead>tr>td {
 	text-align: center;
 }
 
+div#projBuildHistoryRootContainer>table>tbody>tr>td {
+	padding-bottom: 0px;
+	padding-top: 0px;
+	text-align: center;
+}
+
 div#projBuildSummaryCollapse {
 	font-family: 'Ubuntu Mono', monospace;
 	font-size: 12px;
