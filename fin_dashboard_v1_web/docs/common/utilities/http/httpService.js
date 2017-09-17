@@ -4,54 +4,43 @@ httpService.$inject = [ 'HTTP_REQUEST_HEADER', '$http', '$q' ];
 
 function httpService(HTTP_REQUEST_HEADER, $http, $q) {
 	var httpServiceObj = {
-		httpUrl : undefined,
-		httpMethod : undefined,
 		httpHeader: undefined,
-		getHttpUrl : getHttpUrl,
-		getHttpMethod : getHttpMethod,
+		httpMethod : undefined,
+		httpUrl : undefined,
 		getHttpHeader: getHttpHeader,
-		setHttpUrl : setHttpUrl,
-		setHttpMethod : setHttpMethod,
+		getHttpMethod : getHttpMethod,
+		getHttpUrl : getHttpUrl,
 		setHttpHeader: setHttpHeader,
-		doGETRequest : doGETRequest,
-		doGETAllRequest: doGETAllRequest
+		setHttpMethod : setHttpMethod,
+		setHttpUrl : setHttpUrl,
+		doGETAllRequest: doGETAllRequest,
+		doGETRequest : doGETRequest
 	}
 
 	$http.defaults.headers.common.Authorization = HTTP_REQUEST_HEADER.Authorization;
 
-	function getHttpUrl() {
-		return httpServiceObj.httpUrl;
+	function getHttpHeader() {
+		return httpServiceObj.httpHeader;
 	}
 
 	function getHttpMethod() {
 		return httpServiceObj.httpMethod;
 	}
 
-	function getHttpHeader() {
-		return httpServiceObj.httpHeader;
-	}
-
-	function setHttpUrl(httpUrl) {
-		httpServiceObj.httpUrl = httpUrl;
-	}
-
-	function setHttpMethod(httpMethod) {
-		httpServiceObj.httpMethod = httpMethod;
+	function getHttpUrl() {
+		return httpServiceObj.httpUrl;
 	}
 
 	function setHttpHeader(httpHeader) {
 		httpServiceObj.httpHeader = httpHeader;
 	}
 
-	function doGETRequest(doGETSuccessCallback, doGETFailedCallback) {
-		var httpConfig = {
-			url : httpServiceObj.httpUrl,
-			method : httpServiceObj.httpMethod
-		}
+	function setHttpMethod(httpMethod) {
+		httpServiceObj.httpMethod = httpMethod;
+	}
 
-		$http(httpConfig)
-		.then(doGETSuccessCallback)
-		.catch(doGETFailedCallback);
+	function setHttpUrl(httpUrl) {
+		httpServiceObj.httpUrl = httpUrl;
 	}
 
 	function doGETAllRequest() {
@@ -68,6 +57,17 @@ function httpService(HTTP_REQUEST_HEADER, $http, $q) {
 		);
 
 		return $q.all(qPromises);
+	}
+
+	function doGETRequest(doGETSuccessCallback, doGETFailedCallback) {
+		var httpConfig = {
+			url : httpServiceObj.httpUrl,
+			method : httpServiceObj.httpMethod
+		}
+
+		$http(httpConfig)
+		.then(doGETSuccessCallback)
+		.catch(doGETFailedCallback);
 	}
 
 	return httpServiceObj;

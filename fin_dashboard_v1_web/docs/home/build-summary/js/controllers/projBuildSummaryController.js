@@ -10,15 +10,15 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 	DOM_PROJ_BUILD_SUMMARY_ROOT_CONTAINER_ID = 'div#projBuildSummaryRootContainer';
 
 	var vm = this;
+	vm.isCurrentBuildSuccess = null;
 	vm.jenkinsJob = {};
 	vm.jenkinsJobBuilds = {};
 	vm.jenkinsJobPermalinks = {};
-	vm.isCurrentBuildSuccess = null;
 	vm.bootstrapViewModel = bootstrapViewModel;
-	vm.numItemsPerPage = 10;
 	vm.buildHistoryPaginateControl_boundaryLinks = true;
 	vm.buildHistoryPaginateControl_directionLinks = true;
 	vm.buildHistoryPaginateControl_maxSize = 5;
+	vm.numItemsPerPage = 10;
 
 	function bootstrapViewModel() {
 		var httpUrl = API_JENKINS.base + '/job/' + $scope.i.name + '/api/json'

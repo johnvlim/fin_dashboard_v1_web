@@ -5,29 +5,29 @@ webSocketService.$inject = [ '$websocket', 'WS_CONFIG' ];
 
 function webSocketService($websocket, WS_CONFIG) {
 	var webSocketServiceObj = {
-		wsObj : undefined,
 		wsData : undefined,
-		getWsObj : getWsObj,
+		wsObj : undefined,
 		getWsData : getWsData,
-		setWsObj : setWsObj,
+		getWsObj : getWsObj,
 		setWsData : setWsData,
+		setWsObj : setWsObj,
 		confWebSocket : confWebSocket
 	};
-
-	function getWsObj() {
-		return webSocketServiceObj.wsObj;
-	}
 
 	function getWsData() {
 		return webSocketServiceObj.wsData;
 	}
 
-	function setWsObj(wsObj) {
-		webSocketServiceObj.wsObj = wsObj;
+	function getWsObj() {
+		return webSocketServiceObj.wsObj;
 	}
 
 	function setWsData(wsData) {
 		webSocketServiceObj.wsData = wsData;
+	}
+
+	function setWsObj(wsObj) {
+		webSocketServiceObj.wsObj = wsObj;
 	}
 
 	function confWebSocket(onMessageCallback) {
