@@ -19,6 +19,7 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 	vm.buildHistoryPaginateControl_directionLinks = true;
 	vm.buildHistoryPaginateControl_maxSize = 5;
 	vm.numItemsPerPage = 10;
+	vm.downloadConsoleOutput = downloadConsoleOutput;
 
 	function bootstrapViewModel() {
 		var httpUrl = API_JENKINS.base + '/job/' + $scope.i.name + '/api/json'
@@ -28,6 +29,20 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 				doGETFailedCallback_jenkinsJobUrl);
 
 		$(DOM_PROJ_BUILD_SUMMARY_ROOT_CONTAINER_ID).LoadingOverlay('show');
+	}
+
+	function downloadConsoleOutput(jenkinsJobBuild) {
+		var console_output = jenkinsJobBuild.console_output.data;
+		var elem = document.createElement('a');
+		var filename = jenkinsJobBuild.number+'_consoleOutput.txt';
+
+		elem.setAttribute('href', 'data:text/plain;charset=utf-8,'+encodeURIComponent(console_output));
+		elem.setAttribute('download', filename);
+		elem.style.display = 'none';
+
+		document.body.appendChild(elem);
+		elem.click();
+		document.body.removeChild(elem);
 	}
 
 	function doGETSuccessCallback_jenkinsJobUrl(data) {
@@ -115,7 +130,6 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 	}
 
 	$scope.$on(BROADCAST_MESSAGES.doJenkinsBuild, function() {
-		alert('received broadcasted messages');
 	});
 
 	vm.bootstrapViewModel();

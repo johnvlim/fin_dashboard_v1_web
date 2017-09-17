@@ -41,7 +41,7 @@
 										dir-paginate='(k,v) in projBuildSummaryController.jenkinsJobBuilds|itemsPerPage:projBuildSummaryController.numItemsPerPage'>
 										<td>[Build # {{v.number}}]</td>
 										<td><a href={{v.url}} target='_blank'>{{v.url}}</a></td>
-										<td>Download</td>
+										<td ng-click='projBuildSummaryController.downloadConsoleOutput(v)'><span class='link'>Download</span></td>
 									</tr>
 								</tbody>
 							</table>
