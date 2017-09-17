@@ -26,7 +26,8 @@ function doRouteConfig($stateProvider, $urlRouterProvider) {
 
 function doRunConfig(BROADCAST_MESSAGES, $rootScope, webSocketService) {
 	webSocketService.confWebSocket(onMessageCallback);
-}
 
-function onMessageCallback(BROADCAST_MESSAGES, $rootScope) {
+	function onMessageCallback() {
+		$rootScope.$broadcast(BROADCAST_MESSAGES.doJenkinsBuild);
+	}
 }

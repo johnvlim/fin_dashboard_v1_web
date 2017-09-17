@@ -130,6 +130,7 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 	}
 
 	$scope.$on(BROADCAST_MESSAGES.doJenkinsBuild, function() {
+		vm.bootstrapViewModel();
 	});
 
 	vm.bootstrapViewModel();
