@@ -38,13 +38,18 @@
 								</thead>
 								<tbody>
 									<tr
-										ng-repeat='(k,v) in projBuildSummaryController.jenkinsJobBuilds'>
+										dir-paginate='(k,v) in projBuildSummaryController.jenkinsJobBuilds|itemsPerPage:projBuildSummaryController.numItemsPerPage'>
 										<td>[Build # {{v.number}}]</td>
-										<td><a href={{v.url}}>{{v.url}}</a></td>
+										<td><a href={{v.url}} target='_blank'>{{v.url}}</a></td>
 										<td>Download</td>
 									</tr>
 								</tbody>
 							</table>
+							<dir-pagination-controls
+								boundary-links=projBuildSummaryController.buildHistoryPaginateControl_boundaryLinks
+								direction-links=projBuildSummaryController.buildHistoryPaginateControl_directionLinks
+								max-size=projBuildSummaryController.buildHistoryPaginateControl_maxSize>
+							</dir-pagination-controls>
 						</div>
 						<hr>
 						<div id='projBuildTestRootContainer'>

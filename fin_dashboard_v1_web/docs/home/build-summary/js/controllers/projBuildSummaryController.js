@@ -13,8 +13,12 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 	vm.jenkinsJob = {};
 	vm.jenkinsJobBuilds = {};
 	vm.jenkinsJobPermalinks = {};
-	vm.bootstrapViewModel = bootstrapViewModel;
 	vm.isCurrentBuildSuccess = null;
+	vm.bootstrapViewModel = bootstrapViewModel;
+	vm.numItemsPerPage = 10;
+	vm.buildHistoryPaginateControl_boundaryLinks = true;
+	vm.buildHistoryPaginateControl_directionLinks = true;
+	vm.buildHistoryPaginateControl_maxSize = 5;
 
 	function bootstrapViewModel() {
 		var httpUrl = API_JENKINS.base + '/job/' + $scope.i.name + '/api/json'

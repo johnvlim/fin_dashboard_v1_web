@@ -1,7 +1,8 @@
 angular.module(
 		'fin_dashboard_web',
 		[ 'ui.bootstrap', 'ui.router', 'chart.js', 'angularResizable',
-				'ngWebSocket' ]).config(doRouteConfig).run(doRunConfig);
+				'ngWebSocket', 'angularUtils.directives.dirPagination' ])
+		.config(doRouteConfig).run(doRunConfig);
 
 function doRouteConfig($stateProvider, $urlRouterProvider) {
 	$stateProvider.state('home', {

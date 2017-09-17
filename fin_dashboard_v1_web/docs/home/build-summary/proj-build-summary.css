@@ -1,3 +1,8 @@
+div#projBuildHistoryRootContainer>dir-pagination-controls>ul.pagination
+	{
+	margin-top: 0px;
+}
+
 div#projBuildHistoryRootContainer>span.title, div#projBuildPermalinksRootContainer>span.title,
 	div#projBuildTestRootContainer>span.title {
 	font-size: 15px;
@@ -13,7 +18,12 @@ div#projBuildHistoryRootContainer>table>thead>tr>td {
 	text-align: center;
 }
 
+div#projBuildHistoryRootContainer>table>thead>tr>td:hover {
+	cursor: pointer;
+}
+
 div#projBuildHistoryRootContainer>table>tbody>tr>td {
+	border: solid 1px #dfdfdf;
 	padding-bottom: 0px;
 	padding-top: 0px;
 	text-align: center;
