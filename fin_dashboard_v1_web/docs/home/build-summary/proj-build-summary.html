@@ -31,9 +31,10 @@
 								<thead>
 									<tr
 										ng-class='projBuildSummaryController.isCurrentBuildSuccess?"success":"danger"'>
-										<td width='20%'>Build #</td>
-										<td width='60%'>Build Url</td>
-										<td width='20%'>Console Output</td>
+										<td width='15%'>Build #</td>
+										<td width='50%'>Build Url</td>
+										<td width='25%'>Timestamp</td>
+										<td width='10%'>Console Output</td>
 									</tr>
 								</thead>
 								<tbody>
@@ -41,7 +42,10 @@
 										dir-paginate='(k,v) in projBuildSummaryController.jenkinsJobBuilds|itemsPerPage:projBuildSummaryController.numItemsPerPage'>
 										<td>[Build # {{v.number}}]</td>
 										<td><a href={{v.url}} target='_blank'>{{v.url}}</a></td>
-										<td ng-click='projBuildSummaryController.downloadConsoleOutput(v)'><span class='link'>Download</span></td>
+										<td>{{projBuildSummaryController.toDatetime(v.build.timestamp)}}</td>
+										<td
+											ng-click='projBuildSummaryController.downloadConsoleOutput(v)'><span
+											class='link'>Download</span></td>
 									</tr>
 								</tbody>
 							</table>

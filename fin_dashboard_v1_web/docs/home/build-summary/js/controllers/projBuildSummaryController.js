@@ -20,6 +20,7 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 	vm.buildHistoryPaginateControl_maxSize = 5;
 	vm.numItemsPerPage = 10;
 	vm.downloadConsoleOutput = downloadConsoleOutput;
+	vm.toDatetime = toDatetime;
 
 	function bootstrapViewModel() {
 		var httpUrl = API_JENKINS.base + '/job/' + $scope.i.name + '/api/json'
@@ -43,6 +44,10 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 		document.body.appendChild(elem);
 		elem.click();
 		document.body.removeChild(elem);
+	}
+
+	function toDatetime(timeInMilliseconds) {
+		return new Date(timeInMilliseconds).toLocaleString();
 	}
 
 	function doGETSuccessCallback_jenkinsJobUrl(data) {
