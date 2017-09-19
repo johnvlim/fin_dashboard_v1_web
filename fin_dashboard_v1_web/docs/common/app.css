@@ -1,14 +1,5 @@
 body {
-	background-color: #2f4f4f;
-}
-
-span.link {
-	color: #337ab7;
-	text-decoration: underline;
-}
-
-span.link:hover {
-	cursor: pointer;
+	background-color: rgb(50, 54, 58);
 }
 
 u_ {

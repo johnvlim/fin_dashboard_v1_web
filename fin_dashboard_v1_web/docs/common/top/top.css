@@ -6,28 +6,49 @@ div.navbar {
 div.navbar a.navbar-brand {
 	color: #ffffff;
 	line-height: 12px;
+	padding: 8.5px 15px;
 }
 
 div.navbar a.navbar-brand span.brand-company-name {
-	font-family: 'Ubuntu', sans-serif;
+	font-family: 'Verdana';
 	font-weight: bold;
 }
 
 div.navbar a.navbar-brand span.brand-team-name {
-	font-family: 'Ubuntu', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-size: 12px;
-	text-decoration: underline;
 }
 
 div#topMenus {
-	font-family: 'Ubuntu', sans-serif;
+	font-family: 'Roboto', sans-serif;
+	font-size: 15px;
+	padding: 7px;
+	color: #CBCBCB;
 }
 
-img#finastraBanner {
-	border: solid 1px #000000;
-	border-bottom-left-radius: 20px;
-	border-bottom-right-radius: 20px;
-	height: 100px;
-	object-fit: cover;
-	width: 100%;
+.navbar-nav>li>a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.navbar-inverse .navbar-nav > .active > a,	
+.navbar-inverse .navbar-nav > .active > a:focus {
+  color: #fff;
+}
+
+.navbar-inverse .navbar-nav > .active > a:hover {
+  color: #4da1bb;
+}
+
+.navbar {
+  position: relative;
+  height: 15px;
+  border: 1px solid transparent;
+  background-color: #080808;
+  border-bottom:6px groove #9c6e95;
+}
+
+#navigationBar {
+  padding-right: 0px;
+  padding-left: 0px;
 }
