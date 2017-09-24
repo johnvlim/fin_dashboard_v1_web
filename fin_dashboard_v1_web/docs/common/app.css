@@ -1,5 +1,18 @@
 body {
-	background-color: rgb(50, 54, 58);
+	background-color: #32363a;
+}
+
+div.panel.panel-body {
+	margin-bottom: 0px;
+}
+
+span.link {
+	color: #337ab7;
+	text-decoration: underline;
+}
+
+span.link:hover {
+	cursor: pointer;
 }
 
 u_ {

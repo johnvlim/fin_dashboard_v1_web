@@ -1,54 +1,20 @@
-div.navbar {
-	border-radius: 0px;
-	margin-bottom: 0px;
+div#finastraLogoContainer {
+	background-color: #f8f8f8;
+	height: 75px;
 }
 
-div.navbar a.navbar-brand {
-	color: #ffffff;
-	line-height: 12px;
-	padding: 8.5px 15px;
+div#finastraLogoContainer>img {
+	height: 100%;
+	margin-left: 50px;
 }
 
-div.navbar a.navbar-brand span.brand-company-name {
-	font-family: 'Verdana';
-	font-weight: bold;
+div#topRootContainer  div.navbar {
+	border-radius: 0px 0px 50px 50px;
+	padding-left: 50px;
 }
 
-div.navbar a.navbar-brand span.brand-team-name {
+div#topRootContainer div.navbar div.navbar-collapse {
 	font-family: 'Roboto', sans-serif;
 	font-size: 12px;
-}
-
-div#topMenus {
-	font-family: 'Roboto', sans-serif;
-	font-size: 15px;
-	padding: 7px;
-	color: #CBCBCB;
-}
-
-.navbar-nav>li>a {
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.navbar-inverse .navbar-nav > .active > a,	
-.navbar-inverse .navbar-nav > .active > a:focus {
-  color: #fff;
-}
-
-.navbar-inverse .navbar-nav > .active > a:hover {
-  color: #4da1bb;
-}
-
-.navbar {
-  position: relative;
-  height: 15px;
-  border: 1px solid transparent;
-  background-color: #080808;
-  border-bottom:6px groove #9c6e95;
-}
-
-#navigationBar {
-  padding-right: 0px;
-  padding-left: 0px;
+	font-weight: bold;
 }
