@@ -1,11 +1,12 @@
+div#projBuildDeveloperRootContainer>span.title, div#projBuildHistoryRootContainer>span.title,
+	div#projBuildPermalinksRootContainer>span.title, div#projBuildTestRootContainer>span.title
+	{
+	font-size: 15px;
+}
+
 div#projBuildHistoryRootContainer>dir-pagination-controls>ul.pagination
 	{
 	margin-top: 0px;
-}
-
-div#projBuildHistoryRootContainer>span.title, div#projBuildPermalinksRootContainer>span.title,
-	div#projBuildTestRootContainer>span.title {
-	font-size: 15px;
 }
 
 div#projBuildHistoryRootContainer>table {
