@@ -19,6 +19,22 @@ function doRouteConfig($stateProvider, $urlRouterProvider) {
 				controllerAs : 'buildSummaryController'
 			}
 		}
+	}).state('settings', {
+		url : '/settings',
+		views : {
+			'main' : {
+				templateUrl : 'docs/settings/settings.html',
+				controller : 'settingsController',
+				controllerAs : 'settingsController'
+			}
+		}
+	}).state('about', {
+		url : '/about',
+		views : {
+			'main' : {
+				templateUrl : 'docs/about/about.html'
+			}
+		}
 	});
 
 	$urlRouterProvider.otherwise('/home');
