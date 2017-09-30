@@ -36,7 +36,7 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 	}
 
 	function downloadConsoleOutput(jenkinsJobBuild) {
-		var console_output = jenkinsJobBuild.console_output.data;
+		var console_output = jenkinsJobBuild.console_output;
 		var elem = document.createElement('a');
 		var filename = jenkinsJobBuild.number+'_consoleOutput.txt';
 
@@ -111,10 +111,27 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 	function doGETSuccessCallback_jenkinsJobBuildConsoleOutputUrl(data) {
 		appendJenkinsJobBuildConsoleOutput(data);
 
-		$(vm.panelHeadingId).LoadingOverlay('hide');
+		var httpUrl = [];
+		angular.forEach(vm.jenkinsJobBuilds, function(jenkinsJobBuild) {
+			httpUrl.push(jenkinsJobBuild.url + '/testReport/api/json');
+		});
+		httpService.setHttpUrl(httpUrl);
+		httpService.doGETAllRequest()
+		.then(doGETSuccessCallback_jenkinsJobBuildTestReportUrl)
+		.catch(doGETFailedCallback_jenkinsJobBuildTestReportUrl);
 	}
 
 	function doGETFailedCallback_jenkinsJobBuildConsoleOutputUrl(e) {
+		$(vm.panelHeadingId).LoadingOverlay('hide');
+	}
+
+	function doGETSuccessCallback_jenkinsJobBuildTestReportUrl(data) {
+		appendJenkinsJobBuildTestReport(data);
+
+		$(vm.panelHeadingId).LoadingOverlay('hide');
+	}
+
+	function doGETFailedCallback_jenkinsJobBuildTestReportUrl() {
 		$(vm.panelHeadingId).LoadingOverlay('hide');
 	}
 
@@ -136,7 +153,21 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 				var idx_jobBuildNumber = datumConfigUrlSplit.length-3;
 
 				if(jenkinsJobBuild.number == datumConfigUrlSplit[idx_jobBuildNumber]) {
-					jenkinsJobBuild.console_output = datum;
+					jenkinsJobBuild.console_output = datum.data;
+				}
+			});
+		});
+	}
+
+	function appendJenkinsJobBuildTestReport(data) {
+		angular.forEach(vm.jenkinsJobBuilds, function(jenkinsJobBuild) {
+			angular.forEach(data, function(datum) {
+				var datumConfigUrl = datum.config.url;
+				var datumConfigUrlSplit = datumConfigUrl.split('/');
+				var idx_jobBuildNumber = datumConfigUrlSplit.length-5;
+
+				if(jenkinsJobBuild.number == datumConfigUrlSplit[idx_jobBuildNumber]) {
+					jenkinsJobBuild.test_report = datum.data;
 				}
 			});
 		});
