@@ -137,7 +137,7 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 				var datumConfigUrlSplit = datumConfigUrl.split('/');
 				var idx_jobBuildNumber = datumConfigUrlSplit.length-3;
 
-				if(jenkinsJobBuild.number == datumConfigUrlSplit[idx_jobBuildNumber]){
+				if(jenkinsJobBuild.number == datumConfigUrlSplit[idx_jobBuildNumber]) {
 					jenkinsJobBuild.console_output = datum;
 				}
 			});
