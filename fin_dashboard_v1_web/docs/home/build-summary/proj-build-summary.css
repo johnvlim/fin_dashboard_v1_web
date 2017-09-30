@@ -30,7 +30,7 @@ div#projBuildHistoryRootContainer>table>tbody>tr>td {
 	text-align: center;
 }
 
-div#projBuildSummaryCollapse {
+div#projBuildSummaryRootContainer div.collapse {
 	font-family: 'Ubuntu Mono', monospace;
 	font-size: 12px;
 }
@@ -41,7 +41,7 @@ div#projBuildSummaryRootContainer>div.panel>div.panel-heading {
 
 div#projBuildSummaryRootContainer>div.panel>div.panel-heading>span.job-name-title>a
 	{
-	font-family: 'Ubuntu', sans-serif;
+	font-family: 'Segoe UI', sans-serif;
 	font-size: 15px;
 	font-weight: bold;
 }

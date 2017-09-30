@@ -6,13 +6,16 @@
 				<div class='panel-heading panel-title'>
 					<span class='job-name-title'><a
 						data-parent='#projBuildSummaryRootContainer'
-						data-toggle='collapse' href='#projBuildSummaryCollapse'>
+						data-toggle='collapse'
+						href='{{projBuildSummaryController.projBuildSummaryCollapseIdTarget}}'
+						ng-click='projBuildSummaryController.downloadJenkinsJobBuildInfo();'>
 							{{projBuildSummaryController.jenkinsJob.name}}</a></span><br> <span
 						class='job-name-url'><a
 						href='{{projBuildSummaryController.jenkinsJob.url}}'
 						target='_blank'>URL:&nbsp<u_>{{projBuildSummaryController.jenkinsJob.url}}</u_></a></span>
 				</div>
-				<div class='collapse panel-collapse' id='projBuildSummaryCollapse'>
+				<div class='collapse panel-collapse'
+					id='{{projBuildSummaryController.projBuildSummaryCollapseId}}'>
 					<div class='panel-body'>
 						<div id='projBuildPermalinksRootContainer'>
 							<span class='title'><u_>Permalinks</u_></span>

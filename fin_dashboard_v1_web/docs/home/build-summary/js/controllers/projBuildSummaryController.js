@@ -20,10 +20,15 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 	vm.buildHistoryPaginateControl_maxSize = 5;
 	vm.numItemsPerPage = 10;
 	vm.downloadConsoleOutput = downloadConsoleOutput;
+	vm.downloadJenkinsJobBuildInfo = downloadJenkinsJobBuildInfo;
 	vm.toDatetime = toDatetime;
 
+	vm.jenkinsJob = $scope.i;
+	vm.projBuildSummaryCollapseId = vm.jenkinsJob.name;
+	vm.projBuildSummaryCollapseIdTarget = '#' + vm.jenkinsJob.name;
+
 	function bootstrapViewModel() {
-		var httpUrl = API_JENKINS.base + '/job/' + $scope.i.name + '/api/json'
+		var httpUrl = API_JENKINS.base + '/job/' + vm.jenkinsJob.name + '/api/json';
 		httpService.setHttpUrl(httpUrl);
 		httpService.setHttpMethod(HTTP_REQUEST_METHOD.methodGet);
 		httpService.doGETRequest(doGETSuccessCallback_jenkinsJobUrl,
@@ -46,12 +51,24 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 		document.body.removeChild(elem);
 	}
 
+	function downloadJenkinsJobBuildInfo() {
+		var httpUrl = [];
+		angular.forEach(vm.jenkinsJobBuilds, function(jenkinsJobBuild) {
+			httpUrl.push(jenkinsJobBuild.url + '/api/json');
+		});
+		httpService.setHttpUrl(httpUrl);
+		httpService.doGETAllRequest()
+		.then(doGETSuccessCallback_jenkinsJobBuildUrl)
+		.catch(doGETFailedCallback_jenkinsJobBuildUrl);
+
+		$(DOM_PROJ_BUILD_SUMMARY_ROOT_CONTAINER_ID).LoadingOverlay('show');
+	}
+
 	function toDatetime(timeInMilliseconds) {
 		return new Date(timeInMilliseconds).toLocaleString();
 	}
 
 	function doGETSuccessCallback_jenkinsJobUrl(data) {
-		vm.jenkinsJob = $scope.i;
 		vm.jenkinsJobBuilds = data.data.builds;
 		vm.jenkinsJobPermalinks = {
 			'[Build] -- "last"' : data.data.lastBuild,
@@ -69,14 +86,7 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 			vm.isCurrentBuildSuccess = false;
 		}
 
-		var httpUrl = [];
-		angular.forEach(vm.jenkinsJobBuilds, function(jenkinsJobBuild) {
-			httpUrl.push(jenkinsJobBuild.url + '/api/json');
-		});
-		httpService.setHttpUrl(httpUrl);
-		httpService.doGETAllRequest()
-		.then(doGETSuccessCallback_jenkinsJobBuildUrl)
-		.catch(doGETFailedCallback_jenkinsJobBuildUrl);
+		$(DOM_PROJ_BUILD_SUMMARY_ROOT_CONTAINER_ID).LoadingOverlay('hide');
 	}
 
 	function doGETFailedCallback_jenkinsJobUrl(e) {
