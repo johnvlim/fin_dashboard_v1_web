@@ -6,9 +6,6 @@ projBuildSummaryController.$inject = [ 'API_JENKINS', 'HTTP_REQUEST_METHOD', 'BR
 
 function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_MESSAGES, $scope,
 		httpService) {
-	const
-	DOM_PROJ_BUILD_SUMMARY_ROOT_CONTAINER_ID = 'div#projBuildSummaryRootContainer';
-
 	var vm = this;
 	vm.isCurrentBuildSuccess = null;
 	vm.jenkinsJob = {};
@@ -24,6 +21,7 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 	vm.toDatetime = toDatetime;
 
 	vm.jenkinsJob = $scope.i;
+	vm.panelHeadingId = vm.jenkinsJob.name + '_heading';
 	vm.projBuildSummaryCollapseId = vm.jenkinsJob.name;
 	vm.projBuildSummaryCollapseIdTarget = '#' + vm.jenkinsJob.name;
 
@@ -34,7 +32,7 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 		httpService.doGETRequest(doGETSuccessCallback_jenkinsJobUrl,
 				doGETFailedCallback_jenkinsJobUrl);
 
-		$(DOM_PROJ_BUILD_SUMMARY_ROOT_CONTAINER_ID).LoadingOverlay('show');
+		$(vm.panelHeadingId).LoadingOverlay('show');
 	}
 
 	function downloadConsoleOutput(jenkinsJobBuild) {
@@ -61,7 +59,7 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 		.then(doGETSuccessCallback_jenkinsJobBuildUrl)
 		.catch(doGETFailedCallback_jenkinsJobBuildUrl);
 
-		$(DOM_PROJ_BUILD_SUMMARY_ROOT_CONTAINER_ID).LoadingOverlay('show');
+		$(vm.panelHeadingId).LoadingOverlay('show');
 	}
 
 	function toDatetime(timeInMilliseconds) {
@@ -86,11 +84,11 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 			vm.isCurrentBuildSuccess = false;
 		}
 
-		$(DOM_PROJ_BUILD_SUMMARY_ROOT_CONTAINER_ID).LoadingOverlay('hide');
+		$(vm.panelHeadingId).LoadingOverlay('hide');
 	}
 
 	function doGETFailedCallback_jenkinsJobUrl(e) {
-		$(DOM_PROJ_BUILD_SUMMARY_ROOT_CONTAINER_ID).LoadingOverlay('hide');
+		$(vm.panelHeadingId).LoadingOverlay('hide');
 	}
 
 	function doGETSuccessCallback_jenkinsJobBuildUrl(data) {
@@ -107,17 +105,17 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 	}
 
 	function doGETFailedCallback_jenkinsJobBuildUrl(e) {
-		$(DOM_PROJ_BUILD_SUMMARY_ROOT_CONTAINER_ID).LoadingOverlay('hide');
+		$(vm.panelHeadingId).LoadingOverlay('hide');
 	}
 
 	function doGETSuccessCallback_jenkinsJobBuildConsoleOutputUrl(data) {
 		appendJenkinsJobBuildConsoleOutput(data);
 
-		$(DOM_PROJ_BUILD_SUMMARY_ROOT_CONTAINER_ID).LoadingOverlay('hide');
+		$(vm.panelHeadingId).LoadingOverlay('hide');
 	}
 
 	function doGETFailedCallback_jenkinsJobBuildConsoleOutputUrl(e) {
-		$(DOM_PROJ_BUILD_SUMMARY_ROOT_CONTAINER_ID).LoadingOverlay('hide');
+		$(vm.panelHeadingId).LoadingOverlay('hide');
 	}
 
 	function appendJenkinsJobBuild(data) {

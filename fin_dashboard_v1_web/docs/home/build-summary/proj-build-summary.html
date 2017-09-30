@@ -3,7 +3,8 @@
 		<div class='panel panel-group' id='projBuildSummaryRootContainer'>
 			<div class='panel'
 				ng-class='projBuildSummaryController.isCurrentBuildSuccess?"panel-success":"panel-danger"'>
-				<div class='panel-heading panel-title'>
+				<div class='panel-heading panel-title'
+					id='{{projBuildSummaryController.panelHeadingId}}'>
 					<span class='job-name-title'><a
 						data-parent='#projBuildSummaryRootContainer'
 						data-toggle='collapse'
