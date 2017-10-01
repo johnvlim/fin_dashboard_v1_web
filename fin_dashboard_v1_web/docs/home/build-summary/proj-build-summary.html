@@ -63,7 +63,7 @@
 						<div id='projBuildTestRootContainer'
 							ng-if='!(null == projBuildSummaryController.jenkinsJobTestReport_pieChartData) && !(null == projBuildSummaryController.jenkinsJobTestReport_pieChartLabels)'>
 							<span class='title'><u_>Test</u_></span>
-							<pie-chart
+							<doughnut-chart
 								chart-data={{projBuildSummaryController.jenkinsJobTestReport_pieChartData}}
 								chart-labels={{projBuildSummaryController.jenkinsJobTestReport_pieChartLabels}}>
 							</pie-chart>

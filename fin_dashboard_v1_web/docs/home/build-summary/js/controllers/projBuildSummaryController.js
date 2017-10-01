@@ -14,11 +14,11 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 	vm.jenkinsJobPermalinks = {};
 	vm.jenkinsJobTestReport_pieChartData = null;
 	vm.jenkinsJobTestReport_pieChartLabels = null;
-	vm.bootstrapViewModel = bootstrapViewModel;
 	vm.buildHistoryPaginateControl_boundaryLinks = true;
 	vm.buildHistoryPaginateControl_directionLinks = true;
 	vm.buildHistoryPaginateControl_maxSize = 5;
 	vm.numItemsPerPage = 10;
+	vm.bootstrapViewModel = bootstrapViewModel;
 	vm.downloadConsoleOutput = downloadConsoleOutput;
 	vm.downloadJenkinsJobBuildInfo = downloadJenkinsJobBuildInfo;
 	vm.toDatetime = toDatetime;
@@ -181,7 +181,6 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 	function generateChart() {
 		var jenkinsJobBuildLatest = vm.jenkinsJobBuilds[0];
 		var testCount = {
-				total : jenkinsJobBuildLatest.test_report.totalCount,
 				pass: jenkinsJobBuildLatest.test_report.totalCount - jenkinsJobBuildLatest.test_report.failCount,
 				fail: jenkinsJobBuildLatest.test_report.failCount,
 				skip: jenkinsJobBuildLatest.test_report.skipCount
