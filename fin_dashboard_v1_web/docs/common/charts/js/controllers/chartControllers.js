@@ -8,29 +8,32 @@ angular.module('fin_dashboard_web').controller('barChartController',
 		polarAreaChartController).controller('radarChartController',
 		radarChartController);
 
-barChartController.$inject = [];
+barChartController.$inject = [ '$scope' ];
 
-bubbleChartController.$inject = [];
+bubbleChartController.$inject = [ '$scope' ];
 
-doughnutChartController.$inject = [];
+doughnutChartController.$inject = [ '$scope' ];
 
-horizontalBarChartController.$inject = [];
+horizontalBarChartController.$inject = [ '$scope' ];
 
 lineChartController.$inject = [ '$scope' ];
 
-pieChartController.$inject = [];
+pieChartController.$inject = [ '$scope' ];
 
-polarAreaChartController.$inject = [];
+polarAreaChartController.$inject = [ '$scope' ];
 
-radarChartController.$inject = [];
+radarChartController.$inject = [ '$scope' ];
 
-function barChartController() {
+function barChartController($scope) {
 	var vm = this;
-
+	vm.bootstrapChart = bootstrapChart;
 	vm.resizableDimensions = {
 		height : 300,
 		width : 300
 	};
+
+	function bootstrapChart() {
+	}
 
 	/*
 	 * test (begin) src: http://jtblin.github.io/angular-chart.js/
@@ -44,13 +47,16 @@ function barChartController() {
 	 */
 }
 
-function bubbleChartController() {
+function bubbleChartController($scope) {
 	var vm = this;
-
+	vm.bootstrapChart = bootstrapChart;
 	vm.resizableDimensions = {
 		height : 300,
 		width : 300
 	};
+
+	function bootstrapChart() {
+	}
 
 	/*
 	 * test (begin) src: http://jtblin.github.io/angular-chart.js/
@@ -70,13 +76,16 @@ function bubbleChartController() {
 	 */
 }
 
-function doughnutChartController() {
+function doughnutChartController($scope) {
 	var vm = this;
-
+	vm.bootstrapChart = bootstrapChart;
 	vm.resizableDimensions = {
 		height : 300,
 		width : 300
 	};
+
+	function bootstrapChart() {
+	}
 
 	/*
 	 * test (begin) src: http://jtblin.github.io/angular-chart.js/
@@ -88,13 +97,16 @@ function doughnutChartController() {
 	 */
 }
 
-function horizontalBarChartController() {
+function horizontalBarChartController($scope) {
 	var vm = this;
-
+	vm.bootstrapChart = bootstrapChart;
 	vm.resizableDimensions = {
 		height : 300,
 		width : 300
 	};
+
+	function bootstrapChart() {
+	}
 
 	/*
 	 * test (begin) src: http://jtblin.github.io/angular-chart.js/
@@ -110,11 +122,14 @@ function horizontalBarChartController() {
 
 function lineChartController($scope) {
 	var vm = this;
-
+	vm.bootstrapChart = bootstrapChart;
 	vm.resizableDimensions = {
 		height : 300,
 		width : 300
 	};
+
+	function bootstrapChart() {
+	}
 
 	/*
 	 * test (begin) src: http://jtblin.github.io/angular-chart.js/
@@ -143,31 +158,41 @@ function lineChartController($scope) {
 	 */
 }
 
-function pieChartController() {
+function pieChartController($scope) {
 	var vm = this;
-
+	vm.bootstrapChart = bootstrapChart;
+	vm.chartData = $scope.projBuildSummaryController.jenkinsJobTestReport_pieChartData;
+	vm.chartLabels = $scope.projBuildSummaryController.jenkinsJobTestReport_pieChartLabels;
 	vm.resizableDimensions = {
 		height : 300,
 		width : 300
 	};
 
+	function bootstrapChart() {
+	}
+
 	/*
 	 * test (begin) src: http://jtblin.github.io/angular-chart.js/
 	 */
-	vm.chartData = [ 300, 500, 100 ];
-	vm.chartLabels = [ 'Download Sales', 'In-Store Sales', 'Mail-Order Sales' ];
+	/*
+	 * vm.chartData = [ 300, 500, 100 ]; vm.chartLabels = [ 'Download Sales',
+	 * 'In-Store Sales', 'Mail-Order Sales' ];
+	 */
 	/*
 	 * test (end)
 	 */
 }
 
-function polarAreaChartController() {
+function polarAreaChartController($scope) {
 	var vm = this;
-
+	vm.bootstrapChart = bootstrapChart;
 	vm.resizableDimensions = {
 		height : 300,
 		width : 300
 	};
+
+	function bootstrapChart() {
+	}
 
 	/*
 	 * test (begin) src: http://jtblin.github.io/angular-chart.js/
@@ -180,13 +205,16 @@ function polarAreaChartController() {
 	 */
 }
 
-function radarChartController() {
+function radarChartController($scope) {
 	var vm = this;
-
+	vm.bootstrapChart = bootstrapChart;
 	vm.resizableDimensions = {
 		height : 300,
 		width : 300
 	};
+
+	function bootstrapChart() {
+	}
 
 	/*
 	 * test (begin) src: http://jtblin.github.io/angular-chart.js/

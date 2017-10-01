@@ -11,6 +11,8 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 	vm.jenkinsJob = {};
 	vm.jenkinsJobBuilds = {};
 	vm.jenkinsJobPermalinks = {};
+	vm.jenkinsJobTestReport_pieChartData = [];
+	vm.jenkinsJobTestReport_pieChartLabels = [];
 	vm.bootstrapViewModel = bootstrapViewModel;
 	vm.buildHistoryPaginateControl_boundaryLinks = true;
 	vm.buildHistoryPaginateControl_directionLinks = true;
@@ -127,6 +129,7 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 
 	function doGETSuccessCallback_jenkinsJobBuildTestReportUrl(data) {
 		appendJenkinsJobBuildTestReport(data);
+		generateChart();
 
 		$(vm.panelHeadingId).LoadingOverlay('hide');
 	}
@@ -172,6 +175,30 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 				}
 			});
 		});
+	}
+
+	function generateChart() {
+		var jenkinsJobBuildLatest = vm.jenkinsJobBuilds[0];
+		var testCount = {
+				total : jenkinsJobBuildLatest.test_report.totalCount,
+				pass: jenkinsJobBuildLatest.test_report.totalCount - jenkinsJobBuildLatest.test_report.failCount,
+				fail: jenkinsJobBuildLatest.test_report.failCount,
+				skip: jenkinsJobBuildLatest.test_report.skipCount
+		};
+		var testCountKeys = Object.keys(testCount);
+		var testCountValues = Object.values(testCount);
+		var jenkinsJobTestReport_pieChartLabels = [];
+		var jenkinsJobTestReport_pieChartData = [];
+
+		angular.forEach(testCountKeys, function(testCountKey) {
+			jenkinsJobTestReport_pieChartLabels.push(testCountKey);
+		});
+		angular.forEach(testCountValues, function(testCountValue) {
+			jenkinsJobTestReport_pieChartData.push(testCountValue);
+		});
+
+		vm.jenkinsJobTestReport_pieChartLabels = jenkinsJobTestReport_pieChartLabels;
+		vm.jenkinsJobTestReport_pieChartData = jenkinsJobTestReport_pieChartData;
 	}
 
 	$scope.$on(BROADCAST_MESSAGES.doJenkinsBuild, function() {

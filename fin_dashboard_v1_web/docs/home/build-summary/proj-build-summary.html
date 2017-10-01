@@ -63,7 +63,8 @@
 						<div id='projBuildTestRootContainer'>
 							<span class='title'><u_>Test</u_></span>
 							<pie-chart
-								chart-data={{projBuildSummaryController.jenkinsJobBuild.result}}>
+								chart-data={{projBuildSummaryController.jenkinsJobTestReport_pieChartData}}
+								chart-labels={{projBuildSummaryController.jenkinsJobTestReport_pieChartLabels}}>
 							</pie-chart>
 						</div>
 						<hr>
