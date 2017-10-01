@@ -60,7 +60,8 @@
 							</dir-pagination-controls>
 						</div>
 						<hr>
-						<div id='projBuildTestRootContainer'>
+						<div id='projBuildTestRootContainer'
+							ng-if='!(null == projBuildSummaryController.jenkinsJobTestReport_pieChartData) && !(null == projBuildSummaryController.jenkinsJobTestReport_pieChartLabels)'>
 							<span class='title'><u_>Test</u_></span>
 							<pie-chart
 								chart-data={{projBuildSummaryController.jenkinsJobTestReport_pieChartData}}

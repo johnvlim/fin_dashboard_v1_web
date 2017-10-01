@@ -12,8 +12,8 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 	vm.jenkinsJob = {};
 	vm.jenkinsJobBuilds = {};
 	vm.jenkinsJobPermalinks = {};
-	vm.jenkinsJobTestReport_pieChartData = [];
-	vm.jenkinsJobTestReport_pieChartLabels = [];
+	vm.jenkinsJobTestReport_pieChartData = null;
+	vm.jenkinsJobTestReport_pieChartLabels = null;
 	vm.bootstrapViewModel = bootstrapViewModel;
 	vm.buildHistoryPaginateControl_boundaryLinks = true;
 	vm.buildHistoryPaginateControl_directionLinks = true;
