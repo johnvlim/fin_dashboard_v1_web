@@ -26,6 +26,8 @@ function barChart(DIRECTIVE_RESTRICTIONS) {
 
 	dirBarChart.controller = barChartController;
 	dirBarChart.controllerAs = 'barChartController';
+	dirBarChart.link = function(scope, elem, attrs) {
+	}
 	dirBarChart.restrict = DIRECTIVE_RESTRICTIONS.res_element;
 	dirBarChart.templateUrl = 'docs/common/charts/bar-chart.html';
 
@@ -37,6 +39,8 @@ function bubbleChart(DIRECTIVE_RESTRICTIONS) {
 
 	dirBubbleChart.controller = bubbleChartController;
 	dirBubbleChart.controllerAs = 'bubbleChartController';
+	dirBubbleChart.link = function(scope, elem, attrs) {
+	}
 	dirBubbleChart.restrict = DIRECTIVE_RESTRICTIONS.res_element;
 	dirBubbleChart.templateUrl = 'docs/common/charts/bubble-chart.html';
 
@@ -48,6 +52,8 @@ function doughnutChart(DIRECTIVE_RESTRICTIONS) {
 
 	dirDoughnutChart.controller = doughnutChartController;
 	dirDoughnutChart.controllerAs = 'doughnutChartController';
+	dirDoughnutChart.link = function(scope, elem, attrs) {
+	}
 	dirDoughnutChart.restrict = DIRECTIVE_RESTRICTIONS.res_element;
 	dirDoughnutChart.templateUrl = 'docs/common/charts/doughnut-chart.html';
 
@@ -59,6 +65,8 @@ function horizontalBarChart(DIRECTIVE_RESTRICTIONS) {
 
 	dirHorizontalBarChart.controller = horizontalBarChartController;
 	dirHorizontalBarChart.controllerAs = 'horizontalBarChartController';
+	dirHorizontalBarChart.link = function(scope, elem, attrs) {
+	}
 	dirHorizontalBarChart.restrict = DIRECTIVE_RESTRICTIONS.res_element;
 	dirHorizontalBarChart.templateUrl = 'docs/common/charts/horizontal-bar-chart.html';
 
@@ -70,6 +78,8 @@ function lineChart(DIRECTIVE_RESTRICTIONS) {
 
 	dirLineChart.controller = lineChartController;
 	dirLineChart.controllerAs = 'lineChartController';
+	dirLineChart.link = function(scope, elem, attrs) {
+	}
 	dirLineChart.restrict = DIRECTIVE_RESTRICTIONS.res_element;
 	dirLineChart.templateUrl = 'docs/common/charts/line-chart.html';
 
@@ -81,6 +91,8 @@ function pieChart(DIRECTIVE_RESTRICTIONS) {
 
 	dirPieChart.controller = pieChartController;
 	dirPieChart.controllerAs = 'pieChartController';
+	dirPieChart.link = function(scope, elem, attrs) {
+	}
 	dirPieChart.restrict = DIRECTIVE_RESTRICTIONS.res_element;
 	dirPieChart.templateUrl = 'docs/common/charts/pie-chart.html';
 
@@ -92,6 +104,8 @@ function polarAreaChart(DIRECTIVE_RESTRICTIONS) {
 
 	dirPolarAreaChart.controller = polarAreaChartController;
 	dirPolarAreaChart.controllerAs = 'polarAreaChartController';
+	dirPolarAreaChart.link = function(scope, elem, attrs) {
+	}
 	dirPolarAreaChart.restrict = DIRECTIVE_RESTRICTIONS.res_element;
 	dirPolarAreaChart.templateUrl = 'docs/common/charts/polar-area-chart.html';
 
@@ -103,6 +117,8 @@ function radarChart(DIRECTIVE_RESTRICTIONS) {
 
 	dirRadarChart.controller = radarChartController;
 	dirRadarChart.controllerAs = 'radarChartController';
+	dirRadarChart.link = function(scope, elem, attrs) {
+	}
 	dirRadarChart.restrict = DIRECTIVE_RESTRICTIONS.res_element;
 	dirRadarChart.templateUrl = 'docs/common/charts/radar-chart.html';
 

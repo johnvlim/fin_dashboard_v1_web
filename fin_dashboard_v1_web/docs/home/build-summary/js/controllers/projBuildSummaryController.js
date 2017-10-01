@@ -21,7 +21,7 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 	vm.toDatetime = toDatetime;
 
 	vm.jenkinsJob = $scope.i;
-	vm.panelHeadingId = vm.jenkinsJob.name + '_heading';
+	vm.panelHeadingId = 'div#' + vm.jenkinsJob.name + '_heading';
 	vm.projBuildSummaryCollapseId = vm.jenkinsJob.name;
 	vm.projBuildSummaryCollapseIdTarget = '#' + vm.jenkinsJob.name;
 
@@ -168,6 +168,7 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 
 				if(jenkinsJobBuild.number == datumConfigUrlSplit[idx_jobBuildNumber]) {
 					jenkinsJobBuild.test_report = datum.data;
+					jenkinsJobBuild.results = datum.data.childReports[0].result;
 				}
 			});
 		});
