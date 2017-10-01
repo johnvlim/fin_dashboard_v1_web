@@ -51,7 +51,7 @@ function bubbleChartController($scope) {
 function doughnutChartController($scope) {
 	var vm = this;
 	if (!(null == $scope.$parent.projBuildSummaryController)) {
-		vm.chartColors = [ '#3232ff', 'ff3232', '#32ff32' ];
+		vm.chartColors = [ '#3232ff', '#ff3232', '#32ff32' ];
 		vm.chartData = $scope.projBuildSummaryController.jenkinsJobTestReport_pieChartData;
 		vm.chartLabels = $scope.projBuildSummaryController.jenkinsJobTestReport_pieChartLabels;
 	}
@@ -96,7 +96,7 @@ function lineChartController($scope) {
 function pieChartController($scope) {
 	var vm = this;
 	if (!(null == $scope.$parent.projBuildSummaryController)) {
-		vm.chartColors = [ '#3232ff', 'ff3232', '#32ff32' ];
+		vm.chartColors = [ '#3232ff', '#ff3232', '#32ff32' ];
 		vm.chartData = $scope.projBuildSummaryController.jenkinsJobTestReport_pieChartData;
 		vm.chartLabels = $scope.projBuildSummaryController.jenkinsJobTestReport_pieChartLabels;
 	}

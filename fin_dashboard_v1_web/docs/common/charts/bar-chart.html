@@ -1,9 +1,9 @@
-<div>
+<div
+	ng-style='{height: barChartController.resizableDimensions.height+"px", width: barChartController.resizableDimensions.width+"px"}'>
 	<canvas class='chart chart-bar'
 		chart-data='barChartController.chartData'
 		chart-labels='barChartController.chartLabels'
 		chart-series='barChartController.chartSeries'
-		height={{barChartController.resizableDimensions.height}}
-		width={{barChartController.resizableDimensions.width}}>
+		chart-options='barChartController.chartOptions'>
 	</canvas>
 </div>

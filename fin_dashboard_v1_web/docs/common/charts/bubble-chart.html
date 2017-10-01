@@ -1,8 +1,8 @@
-<div>
+<div
+	ng-style='{height: bubbleChartController.resizableDimensions.height+"px", width: bubbleChartController.resizableDimensions.width+"px"}'>
 	<canvas class='chart chart-bubble'
 		chart-data='bubbleChartController.chartData'
 		chart-series='bubbleChartController.chartSeries'
-		height={{bubbleChartController.resizableDimensions.height}}
-		width={{bubbleChartController.resizableDimensions.width}}>
+		chart-options='bubbleChartController.chartOptions'>
 	</canvas>
 </div>

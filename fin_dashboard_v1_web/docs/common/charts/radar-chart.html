@@ -1,8 +1,8 @@
-<div>
+<div
+	ng-style='{height: radarChartController.resizableDimensions.height+"px", width: radarChartController.resizableDimensions.width+"px"}'>
 	<canvas class='chart chart-radar'
 		chart-data='radarChartController.chartData'
 		chart-labels='radarChartController.chartLabels'
-		height={{radarChartController.resizableDimensions.height}}
-		width={{radarChartController.resizableDimensions.width}}>
+		chart-options='radarChartController.chartOptions'>
 	</canvas>
 </div>

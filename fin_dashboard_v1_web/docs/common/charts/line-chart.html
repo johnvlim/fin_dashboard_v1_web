@@ -1,9 +1,8 @@
-<div>
+<div
+	ng-style='{height: lineChartController.resizableDimensions.height+"px", width: lineChartController.resizableDimensions.width+"px"}'>
 	<canvas class='chart chart-line'
 		chart-data='lineChartController.chartData'
 		chart-labels='lineChartController.chartLabels'
-		chart-options='lineChartController.chartOptions'
-		height={{lineChartController.resizableDimensions.height}}
-		width={{lineChartController.resizableDimensions.width}}>
+		chart-options='lineChartController.chartOptions'>
 	</canvas>
 </div>

@@ -51,3 +51,7 @@ div#projBuildSummaryRootContainer>div.panel>div.panel-heading>span.job-name-url>
 	font-family: 'Ubuntu', sans-serif;
 	font-size: 12px;
 }
+
+table#testReportSummaryTable {
+	width: 100%;
+}

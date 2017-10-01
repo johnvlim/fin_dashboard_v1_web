@@ -63,10 +63,25 @@
 						<div id='projBuildTestRootContainer'
 							ng-if='!(null == projBuildSummaryController.jenkinsJobTestReport_pieChartData) && !(null == projBuildSummaryController.jenkinsJobTestReport_pieChartLabels)'>
 							<span class='title'><u_>Test</u_></span>
-							<doughnut-chart
-								chart-data={{projBuildSummaryController.jenkinsJobTestReport_pieChartData}}
-								chart-labels={{projBuildSummaryController.jenkinsJobTestReport_pieChartLabels}}>
-							</pie-chart>
+							<table class='table' id='testReportSummaryTable'>
+								<tbody>
+									<tr>
+										<td width='30%'><doughnut-chart
+												chart-data={{projBuildSummaryController.jenkinsJobTestReport_pieChartData}}
+												chart-labels={{projBuildSummaryController.jenkinsJobTestReport_pieChartLabels}}>
+											</doughnut-chart></td>
+										<td width='70%'>[# of tests executed] --
+											{{projBuildSummaryController.jenkinsJobBuilds[0].test_report.totalCount}}<br>
+											[# of tests executed (PASSED)] --
+											{{projBuildSummaryController.jenkinsJobTestReport_pieChartData[0]}}<br>
+											[# of tests executed (FAILED)] --
+											{{projBuildSummaryController.jenkinsJobTestReport_pieChartData[1]}}<br>
+											[# of tests (SKIPPED)] --
+											{{projBuildSummaryController.jenkinsJobTestReport_pieChartData[2]}}
+										</td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
 						<hr>
 						<div id='projBuildDeveloperRootContainer'>

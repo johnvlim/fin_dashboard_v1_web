@@ -1,8 +1,8 @@
-<div>
+<div
+	ng-style='{height: polarAreaChartController.resizableDimensions.height+"px", width: polarAreaChartController.resizableDimensions.width+"px"}'>
 	<canvas class='chart chart-polar-area'
 		chart-data='polarAreaChartController.chartData'
 		chart-labels='polarAreaChartController.chartLabels'
-		height={{polarAreaChartController.resizableDimensions.height}}
-		width={{polarAreaChartController.resizableDimensions.width}}>
+		chart-options='polarAreaChartController.chartOptions'>
 	</canvas>
 </div>
