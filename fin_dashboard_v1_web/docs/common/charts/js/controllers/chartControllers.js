@@ -161,12 +161,14 @@ function lineChartController($scope) {
 function pieChartController($scope) {
 	var vm = this;
 	vm.bootstrapChart = bootstrapChart;
-	vm.chartData = $scope.projBuildSummaryController.jenkinsJobTestReport_pieChartData;
-	vm.chartLabels = $scope.projBuildSummaryController.jenkinsJobTestReport_pieChartLabels;
 	vm.resizableDimensions = {
 		height : 300,
 		width : 300
 	};
+	if (!(null == $scope.$parent.projBuildSummaryController)) {
+		vm.chartData = $scope.projBuildSummaryController.jenkinsJobTestReport_pieChartData;
+		vm.chartLabels = $scope.projBuildSummaryController.jenkinsJobTestReport_pieChartLabels;
+	}
 
 	function bootstrapChart() {
 	}

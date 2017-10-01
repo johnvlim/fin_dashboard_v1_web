@@ -8,6 +8,7 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 		httpService) {
 	var vm = this;
 	vm.isCurrentBuildSuccess = null;
+	vm.isCollapse = false;
 	vm.jenkinsJob = {};
 	vm.jenkinsJobBuilds = {};
 	vm.jenkinsJobPermalinks = {};

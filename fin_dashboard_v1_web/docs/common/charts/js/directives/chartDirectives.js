@@ -94,6 +94,7 @@ function pieChart(DIRECTIVE_RESTRICTIONS) {
 	dirPieChart.link = function(scope, elem, attrs) {
 	}
 	dirPieChart.restrict = DIRECTIVE_RESTRICTIONS.res_element;
+	dirPieChart.scope = true;
 	dirPieChart.templateUrl = 'docs/common/charts/pie-chart.html';
 
 	return dirPieChart;
