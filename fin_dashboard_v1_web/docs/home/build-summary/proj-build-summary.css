@@ -10,10 +10,12 @@ div#projBuildHistoryRootContainer>dir-pagination-controls>ul.pagination
 }
 
 div#projBuildHistoryRootContainer>table {
-	width: 75%
+	width: 100%;
 }
 
-div#projBuildHistoryRootContainer>table>thead>tr>td {
+div#projBuildHistoryRootContainer>table>thead>tr>td, table#testReportTestsTable>thead>tr>td
+	{
+	border: solid 1px #dfdfdf;
 	border-top-left-radius: 25px;
 	border-top-right-radius: 25px;
 	text-align: center;
@@ -23,7 +25,8 @@ div#projBuildHistoryRootContainer>table>thead>tr>td:hover {
 	cursor: pointer;
 }
 
-div#projBuildHistoryRootContainer>table>tbody>tr>td {
+div#projBuildHistoryRootContainer>table>tbody>tr>td, table#testReportTestsTable>tbody>tr>td
+	{
 	border: solid 1px #dfdfdf;
 	padding-bottom: 0px;
 	padding-top: 0px;

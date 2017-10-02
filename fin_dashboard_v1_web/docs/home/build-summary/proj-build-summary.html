@@ -35,19 +35,19 @@
 								<thead>
 									<tr
 										ng-class='projBuildSummaryController.isCurrentBuildSuccess?"success":"danger"'>
-										<td width='15%'>Build #</td>
-										<td width='50%'>Build Url</td>
-										<td width='25%'>Timestamp</td>
-										<td width='10%'>Console Output</td>
+										<td colspan='1' width='15%'>Build #</td>
+										<td colspan='1' width='50%'>Build Url</td>
+										<td colspan='1' width='25%'>Timestamp</td>
+										<td colspan='1' width='10%'>Console Output</td>
 									</tr>
 								</thead>
 								<tbody>
 									<tr
 										dir-paginate='(k,v) in projBuildSummaryController.jenkinsJobBuilds|itemsPerPage:projBuildSummaryController.numItemsPerPage'>
-										<td>[Build # {{v.number}}]</td>
-										<td><a href={{v.url}} target='_blank'>{{v.url}}</a></td>
-										<td>{{projBuildSummaryController.toDatetime(v.build.timestamp)}}</td>
-										<td
+										<td colspan='1'>[Build # {{v.number}}]</td>
+										<td colspan='1'><a href={{v.url}} target='_blank'>{{v.url}}</a></td>
+										<td colspan='1'>{{projBuildSummaryController.toDatetime(v.build.timestamp)}}</td>
+										<td colspan='1'
 											ng-click='projBuildSummaryController.downloadConsoleOutput(v)'><span
 											class='link'>Download</span></td>
 									</tr>
@@ -66,11 +66,11 @@
 							<table class='table' id='testReportSummaryTable'>
 								<tbody>
 									<tr>
-										<td width='30%'><doughnut-chart
+										<td colspan='1' width='30%'><doughnut-chart
 												chart-data={{projBuildSummaryController.jenkinsJobTestReport_pieChartData}}
 												chart-labels={{projBuildSummaryController.jenkinsJobTestReport_pieChartLabels}}>
 											</doughnut-chart></td>
-										<td width='70%'>[# of tests executed] --
+										<td colspan='1' width='70%'>[# of tests executed] --
 											{{projBuildSummaryController.jenkinsJobBuilds[0].test_report.totalCount}}<br>
 											[# of tests executed (PASSED)] --
 											{{projBuildSummaryController.jenkinsJobTestReport_pieChartData[0]}}<br>
@@ -79,6 +79,31 @@
 											[# of tests (SKIPPED)] --
 											{{projBuildSummaryController.jenkinsJobTestReport_pieChartData[2]}}
 										</td>
+									</tr>
+								</tbody>
+							</table>
+							<table class='table' id='testReportTestsTable'
+								ng-repeat='i in projBuildSummaryController.jenkinsJobBuilds[0].results.suites'>
+								<thead>
+									<tr
+										ng-class='projBuildSummaryController.isCurrentBuildSuccess?"success":"danger"'>
+										<td colspan='4' width='100%'>{{i.name}}</td>
+									</tr>
+									<tr
+										ng-class='projBuildSummaryController.isCurrentBuildSuccess?"success":"danger"'>
+										<td colspan='1' width='50%'>Class Name</td>
+										<td colspan='1' width='10%'>Duration</td>
+										<td colspan='1' width='30%'>Name</td>
+										<td colspan='1' width='10%'>Status</td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr
+										dir-paginate='j in i.cases|itemsPerPage:projBuildSummaryController.numItemsPerPage'>
+										<td colspan='1'>{{j.className}}</td>
+										<td colspan='1'>{{j.duration}}</td>
+										<td colspan='1'>{{j.name}}</td>
+										<td colspan='1'>{{j.status}}</td>
 									</tr>
 								</tbody>
 							</table>
