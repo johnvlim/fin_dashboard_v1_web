@@ -81,7 +81,7 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 			'[Build] -- "last_unsuccessful"' : data.data.lastUnsuccessfulBuild
 		};
 
-		if (data.data.lastSuccessfulBuild.number == data.data.lastCompletedBuild.number) {
+		if (data.data.lastSuccessfulBuild.number == data.data.lastCompletedBuild.number && data.data.lastSuccessfulBuild.number == data.data.lastStableBuild.number) {
 			vm.isCurrentBuildSuccess = true;
 		} else {
 			vm.isCurrentBuildSuccess = false;
