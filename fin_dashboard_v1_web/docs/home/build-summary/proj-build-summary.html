@@ -99,7 +99,8 @@
 								</thead>
 								<tbody>
 									<tr
-										dir-paginate='j in i.cases|itemsPerPage:projBuildSummaryController.numItemsPerPage'>
+										dir-paginate='j in i.cases|itemsPerPage:projBuildSummaryController.numItemsPerPage'
+										ng-class='j.status=="PASSED"?"success":"danger"'>
 										<td colspan='1'>{{j.className}}</td>
 										<td colspan='1'>{{j.duration}}</td>
 										<td colspan='1'>{{j.name}}</td>
