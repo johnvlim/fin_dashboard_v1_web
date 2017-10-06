@@ -1,11 +1,11 @@
 angular.module('fin_dashboard_web').controller('projBuildSummaryController',
 		projBuildSummaryController);
 
-projBuildSummaryController.$inject = [ 'API_JENKINS', 'HTTP_REQUEST_METHOD', 'BROADCAST_MESSAGES', 
-		'$scope', 'httpService' ];
+projBuildSummaryController.$inject = [ 'API_JENKINS', 'HTTP_REQUEST_METHOD', 'BROADCAST_MESSAGES',
+		'$scope', '$q', 'httpService' ];
 
 function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_MESSAGES, $scope,
-		httpService) {
+		$q, httpService) {
 	var vm = this;
 	vm.isCurrentBuildSuccess = null;
 	vm.isCollapse = false;
@@ -29,13 +29,16 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 	vm.projBuildSummaryCollapseIdTarget = '#' + vm.jenkinsJob.name;
 
 	function bootstrapViewModel() {
+		var deferred = $q.defer();
 		var httpUrl = API_JENKINS.base + '/job/' + vm.jenkinsJob.name + '/api/json';
 		httpService.setHttpUrl(httpUrl);
 		httpService.setHttpMethod(HTTP_REQUEST_METHOD.methodGet);
-		httpService.doGETRequest(doGETSuccessCallback_jenkinsJobUrl,
-				doGETFailedCallback_jenkinsJobUrl);
+		httpService.doGETRequest(doGETSuccessCallback_jenkinsJobUrl.bind(deferred),
+				doGETFailedCallback_jenkinsJobUrl.bind(deferred));
 
 		$(vm.panelHeadingId).LoadingOverlay('show');
+
+		return deferred.promise;
 	}
 
 	function downloadConsoleOutput(jenkinsJobBuild) {
@@ -88,10 +91,14 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 		}
 
 		$(vm.panelHeadingId).LoadingOverlay('hide');
+
+		this.resolve();
 	}
 
 	function doGETFailedCallback_jenkinsJobUrl(e) {
 		$(vm.panelHeadingId).LoadingOverlay('hide');
+
+		this.reject();
 	}
 
 	function doGETSuccessCallback_jenkinsJobBuildUrl(data) {
@@ -202,7 +209,13 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 	}
 
 	$scope.$on(BROADCAST_MESSAGES.doJenkinsBuild, function() {
-		vm.bootstrapViewModel();
+		vm.bootstrapViewModel()
+		.then(function() {
+			console.log('bootstrapViewModel->success');
+		})
+		.catch(function() {
+			console.log('bootstrapViewModel->failed');
+		});
 	});
 
 	vm.bootstrapViewModel();
