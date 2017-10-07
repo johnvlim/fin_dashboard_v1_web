@@ -84,6 +84,19 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 			'[Build] -- "last_unsuccessful"' : data.data.lastUnsuccessfulBuild
 		};
 
+		if(!(data.data.lastSuccessfulBuild)) {
+			data.data.lastSuccessfulBuild = {};
+			data.data.lastSuccessfulBuild.number = -1;
+		}
+		if(!(data.data.lastCompletedBuild)) {
+			data.data.lastCompletedBuild = {};
+			data.data.lastCompletedBuild.number = -1;
+		}
+		if(!(data.data.lastStableBuild)) {
+			data.data.lastStableBuild = {};
+			data.data.lastStableBuild.number = -1;
+		}
+
 		if (data.data.lastSuccessfulBuild.number == data.data.lastCompletedBuild.number && data.data.lastSuccessfulBuild.number == data.data.lastStableBuild.number) {
 			vm.isCurrentBuildSuccess = true;
 		} else {
@@ -98,7 +111,7 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 	function doGETFailedCallback_jenkinsJobUrl(e) {
 		$(vm.panelHeadingId).LoadingOverlay('hide');
 
-		this.reject();
+		this.reject(e);
 	}
 
 	function doGETSuccessCallback_jenkinsJobBuildUrl(data) {
@@ -213,10 +226,16 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 		.then(function() {
 			console.log('bootstrapViewModel->success');
 		})
-		.catch(function() {
+		.catch(function(e) {
 			console.log('bootstrapViewModel->failed');
 		});
 	});
 
-	vm.bootstrapViewModel();
+	vm.bootstrapViewModel()
+	.then(function() {
+		console.log('bootstrapViewModel->success');
+	})
+	.catch(function(e) {
+		console.log('bootstrapViewModel->fail');
+	});
 }
