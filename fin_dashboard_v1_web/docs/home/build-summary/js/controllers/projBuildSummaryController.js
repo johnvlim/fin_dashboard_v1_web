@@ -1,10 +1,10 @@
 angular.module('fin_dashboard_web').controller('projBuildSummaryController',
 		projBuildSummaryController);
 
-projBuildSummaryController.$inject = [ 'API_JENKINS', 'BROADCAST_MESSAGES', 'HTTP_REQUEST_METHOD',
+projBuildSummaryController.$inject = [ 'API_JENKINS', 'FIREBASE_CONFIG', 'BROADCAST_MESSAGES', 'HTTP_REQUEST_METHOD',
 		'$firebase', '$q', '$scope', 'httpService' ];
 
-function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_MESSAGES,
+function projBuildSummaryController(API_JENKINS, FIREBASE_CONFIG, HTTP_REQUEST_METHOD, BROADCAST_MESSAGES,
 		$firebase, $q, $scope, httpService) {
 	var vm = this;
 	vm.isCurrentBuildSuccess = null;
@@ -21,6 +21,7 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 	vm.bootstrapViewModel = bootstrapViewModel;
 	vm.downloadConsoleOutput = downloadConsoleOutput;
 	vm.downloadJenkinsJobBuildInfo = downloadJenkinsJobBuildInfo;
+	vm.fetchFromFirebase = fetchFromFirebase;
 	vm.toDatetime = toDatetime;
 
 	vm.jenkinsJob = $scope.i;
@@ -61,11 +62,18 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 			httpUrl.push(jenkinsJobBuild.url + '/api/json');
 		});
 		httpService.setHttpUrl(httpUrl);
+		httpService.setHttpMethod(HTTP_REQUEST_METHOD.methodGet);
 		httpService.doGETAllRequest()
 		.then(doGETSuccessCallback_jenkinsJobBuildUrl)
 		.catch(doGETFailedCallback_jenkinsJobBuildUrl);
 
 		$(vm.panelHeadingId).LoadingOverlay('show');
+	}
+
+	function fetchFromFirebase() {
+		var firebaseReference = new Firebase(FIREBASE_CONFIG.databaseURL);
+		var firebaseData = $firebase(firebaseReference).$asArray();
+		console.log('fetchFromFirebase->begin');
 	}
 
 	function toDatetime(timeInMilliseconds) {
@@ -122,6 +130,7 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 			httpUrl.push(datum.data.url + '/consoleText');
 		});
 		httpService.setHttpUrl(httpUrl);
+		httpService.setHttpMethod(HTTP_REQUEST_METHOD.methodGet);
 		httpService.doGETAllRequest()
 		.then(doGETSuccessCallback_jenkinsJobBuildConsoleOutputUrl)
 		.catch(doGETFailedCallback_jenkinsJobBuildConsoleOutputUrl);
@@ -139,6 +148,7 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 			httpUrl.push(jenkinsJobBuild.url + '/testReport/api/json');
 		});
 		httpService.setHttpUrl(httpUrl);
+		httpService.setHttpMethod(HTTP_REQUEST_METHOD.methodGet);
 		httpService.doGETAllRequest()
 		.then(doGETSuccessCallback_jenkinsJobBuildTestReportUrl)
 		.catch(doGETFailedCallback_jenkinsJobBuildTestReportUrl);
@@ -151,6 +161,7 @@ function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_
 	function doGETSuccessCallback_jenkinsJobBuildTestReportUrl(data) {
 		appendJenkinsJobBuildTestReport(data);
 		generateChart();
+		fetchFromFirebase();
 
 		$(vm.panelHeadingId).LoadingOverlay('hide');
 	}
