@@ -2,10 +2,10 @@ angular.module('fin_dashboard_web').controller('projBuildSummaryController',
 		projBuildSummaryController);
 
 projBuildSummaryController.$inject = [ 'API_JENKINS', 'FIREBASE_CONFIG', 'BROADCAST_MESSAGES', 'HTTP_REQUEST_METHOD',
-		'$firebase', '$q', '$scope', 'httpService' ];
+		'$firebaseObject', '$q', '$scope', 'httpService' ];
 
 function projBuildSummaryController(API_JENKINS, FIREBASE_CONFIG, BROADCAST_MESSAGES, HTTP_REQUEST_METHOD,
-		$firebase, $q, $scope, httpService) {
+		$firebaseObject, $q, $scope, httpService) {
 	var vm = this;
 	vm.isCurrentBuildSuccess = null;
 	vm.isCollapse = false;
@@ -71,9 +71,14 @@ function projBuildSummaryController(API_JENKINS, FIREBASE_CONFIG, BROADCAST_MESS
 	}
 
 	function fetchFromFirebase() {
-		var firebaseReference = new Firebase(FIREBASE_CONFIG.databaseURL);
-		var firebaseData = $firebase(firebaseReference).$asArray();
-		console.log('fetchFromFirebase->begin');
+		var firebaseReference = firebase.database().ref();
+		var firebaseData = $firebaseObject(firebaseReference)
+		.then(function() {
+			console.log('fetchFromFirebase success');
+		})
+		.catch(function() {
+			console.log('fetchFromFirebase fail');
+		});
 	}
 
 	function toDatetime(timeInMilliseconds) {
