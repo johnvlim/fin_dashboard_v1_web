@@ -4,7 +4,7 @@ angular.module('fin_dashboard_web').controller('projBuildSummaryController',
 projBuildSummaryController.$inject = [ 'API_JENKINS', 'FIREBASE_CONFIG', 'BROADCAST_MESSAGES', 'HTTP_REQUEST_METHOD',
 		'$firebase', '$q', '$scope', 'httpService' ];
 
-function projBuildSummaryController(API_JENKINS, FIREBASE_CONFIG, HTTP_REQUEST_METHOD, BROADCAST_MESSAGES,
+function projBuildSummaryController(API_JENKINS, FIREBASE_CONFIG, BROADCAST_MESSAGES, HTTP_REQUEST_METHOD,
 		$firebase, $q, $scope, httpService) {
 	var vm = this;
 	vm.isCurrentBuildSuccess = null;
