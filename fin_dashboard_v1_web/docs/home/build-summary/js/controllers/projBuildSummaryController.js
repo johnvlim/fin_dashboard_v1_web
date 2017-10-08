@@ -1,11 +1,11 @@
 angular.module('fin_dashboard_web').controller('projBuildSummaryController',
 		projBuildSummaryController);
 
-projBuildSummaryController.$inject = [ 'API_JENKINS', 'HTTP_REQUEST_METHOD', 'BROADCAST_MESSAGES',
-		'$scope', '$q', 'httpService' ];
+projBuildSummaryController.$inject = [ 'API_JENKINS', 'BROADCAST_MESSAGES', 'HTTP_REQUEST_METHOD',
+		'$firebase', '$q', '$scope', 'httpService' ];
 
-function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_MESSAGES, $scope,
-		$q, httpService) {
+function projBuildSummaryController(API_JENKINS, HTTP_REQUEST_METHOD, BROADCAST_MESSAGES,
+		$firebase, $q, $scope, httpService) {
 	var vm = this;
 	vm.isCurrentBuildSuccess = null;
 	vm.isCollapse = false;
