@@ -55,7 +55,9 @@ function doRouteConfig($stateProvider, $urlRouterProvider) {
 function doFirebaseSignIn(angularFireService) {
 	angularFireService.setUser('johnvictor.lim@misys.com');
 	angularFireService.setPassword('johnvictor.lim');
-	angularFireService.registerUser();
+	angularFireService.authenticateUser()
+	.then(doFirebaseJobSuccessCallback_authenticateUser)
+	.catch(doFirebaseJobFailedCallback_authenticateUser);
 }
 
 function doRunConfig(BROADCAST_MESSAGES, $rootScope, webSocketService) {
@@ -64,4 +66,24 @@ function doRunConfig(BROADCAST_MESSAGES, $rootScope, webSocketService) {
 	function onMessageCallback() {
 		$rootScope.$broadcast(BROADCAST_MESSAGES.doJenkinsBuild);
 	}
+}
+
+function doFirebaseJobSuccessCallback_authenticateUser(user) {
+	console.log('app->doFirebaseJobSuccessCallback_authenticateUser->success');
+}
+
+function doFirebaseJobFailedCallback_authenticateUser(e) {
+	console.log('app->doFirebaseJobSuccessCallback_authenticateUser->fail');
+
+	angularFireService.registerUser()
+	.then(doFirebaseJobSuccessCallback_registerUser)
+	.catch(doFirebaseJobFailedCallback_registerUser);
+}
+
+function doFirebaseJobSuccessCallback_registerUser(user) {
+	console.log('app->doFirebaseJobSuccessCallback_registerUser->success');
+}
+
+function doFirebaseJobFailedCallback_registerUser(e) {
+	console.log('app->doFirebaseJobSuccessCallback_registerUser->fail');
 }
