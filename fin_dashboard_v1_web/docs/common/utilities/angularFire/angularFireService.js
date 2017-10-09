@@ -1,9 +1,9 @@
 angular.module('fin_dashboard_web').factory('angularFireService',
 		angularFireService);
 
-angularFireService.$inject = [ 'FIREBASE_CONFIG', '$firebaseAuth' ];
+angularFireService.$inject = [ 'FIREBASE_CONFIG', '$firebaseAuth', '$q' ];
 
-function angularFireService(FIREBASE_CONFIG, $firebaseAuth) {
+function angularFireService(FIREBASE_CONFIG, $firebaseAuth, $q) {
 	var angularFireServiceObj = {
 		user : undefined,
 		password : undefined,
@@ -32,6 +32,7 @@ function angularFireService(FIREBASE_CONFIG, $firebaseAuth) {
 	}
 
 	function registerUser() {
+		var deferred = $q.defer();
 		var firebaseRef = firebase.database().ref();
 		var firebaseAuth = $firebaseAuth();
 
@@ -43,14 +44,21 @@ function angularFireService(FIREBASE_CONFIG, $firebaseAuth) {
 							if (!e) {
 								console
 										.log('angularFireService->registerUser->success');
+
+								deferred.resolve(user);
 							} else {
 								console
 										.log('angularFireService->registerUser->fail');
+
+								deferred.reject(e);
 							}
 						});
+
+		return deferred.promise;
 	}
 
 	function authenticateUser() {
+		var deferred = $q.defer();
 		var firebaseRef = new Firebase(FIREBASE_CONFIG.databaseURL);
 		var firebaseAuth = $firebaseAuth(firebaseRef);
 
@@ -58,9 +66,17 @@ function angularFireService(FIREBASE_CONFIG, $firebaseAuth) {
 			email : angularFireServiceObj.user,
 			password : angularFireServiceObj.password
 		}).then(function(user) {
+			console.log('angularFireService->authenticateUser->success');
+
+			deferred.resolve(user);
 		})
 		.catch(function(e) {
+			console.log('angularFireService->authenticateUser->fail');
+
+			deferred.reject(e);
 		});
+
+		return deferred.promise;
 	}
 
 	return angularFireServiceObj;
