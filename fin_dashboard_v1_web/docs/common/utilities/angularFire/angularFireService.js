@@ -65,7 +65,8 @@ function angularFireService(FIREBASE_CONFIG, $firebaseAuth, $q) {
 		firebaseAuth.$login('password', {
 			email : angularFireServiceObj.user,
 			password : angularFireServiceObj.password
-		}).then(function(user) {
+		})
+		.then(function(user) {
 			console.log('angularFireService->authenticateUser->success');
 
 			deferred.resolve(user);
