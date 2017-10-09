@@ -74,10 +74,10 @@ function projBuildSummaryController(API_JENKINS, FIREBASE_CONFIG, BROADCAST_MESS
 		var firebaseReference = firebase.database().ref();
 		var firebaseData = $firebaseObject(firebaseReference)
 		.then(function() {
-			console.log('fetchFromFirebase success');
+			console.log('projBuildSummaryController->fetchFromFirebase->success');
 		})
 		.catch(function() {
-			console.log('fetchFromFirebase fail');
+			console.log('projBuildSummaryController->fetchFromFirebase->fail');
 		});
 	}
 
@@ -243,15 +243,15 @@ function projBuildSummaryController(API_JENKINS, FIREBASE_CONFIG, BROADCAST_MESS
 			downloadJenkinsJobBuildInfo();
 		})
 		.catch(function(e) {
-			console.log('bootstrapViewModel->failed');
+			console.log('projBuildSummaryController->bootstrapViewModel->failed');
 		});
 	});
 
 	vm.bootstrapViewModel()
 	.then(function() {
-		console.log('bootstrapViewModel->success');
+		console.log('projBuildSummaryController->bootstrapViewModel->success');
 	})
 	.catch(function(e) {
-		console.log('bootstrapViewModel->fail');
+		console.log('projBuildSummaryController->bootstrapViewModel->fail');
 	});
 }
