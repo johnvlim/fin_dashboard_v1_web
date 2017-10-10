@@ -166,7 +166,7 @@ function projBuildSummaryController(API_JENKINS, FIREBASE_CONFIG, BROADCAST_MESS
 	function doGETSuccessCallback_jenkinsJobBuildTestReportUrl(data) {
 		appendJenkinsJobBuildTestReport(data);
 		generateChart();
-		fetchFromFirebase();
+		vm.fetchFromFirebase();
 
 		$(vm.panelHeadingId).LoadingOverlay('hide');
 	}
