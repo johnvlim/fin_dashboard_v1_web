@@ -67,11 +67,13 @@ function projBuildSummaryController(API_JENKINS, FIREBASE_CONFIG, BROADCAST_MESS
 		.then(doGETSuccessCallback_jenkinsJobBuildUrl)
 		.catch(doGETFailedCallback_jenkinsJobBuildUrl);
 
+		vm.fetchFromFirebase();
+
 		$(vm.panelHeadingId).LoadingOverlay('show');
 	}
 
 	function fetchFromFirebase() {
-		var firebaseReference = firebase.database().ref();
+		var firebaseReference = firebase.database().ref('projects');
 		var firebaseData = $firebaseObject(firebaseReference);
 	}
 
@@ -160,7 +162,6 @@ function projBuildSummaryController(API_JENKINS, FIREBASE_CONFIG, BROADCAST_MESS
 	function doGETSuccessCallback_jenkinsJobBuildTestReportUrl(data) {
 		appendJenkinsJobBuildTestReport(data);
 		generateChart();
-		vm.fetchFromFirebase();
 
 		$(vm.panelHeadingId).LoadingOverlay('hide');
 	}
