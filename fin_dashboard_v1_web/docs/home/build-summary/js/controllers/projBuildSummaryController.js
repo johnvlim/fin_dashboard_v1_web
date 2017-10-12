@@ -72,13 +72,7 @@ function projBuildSummaryController(API_JENKINS, FIREBASE_CONFIG, BROADCAST_MESS
 
 	function fetchFromFirebase() {
 		var firebaseReference = firebase.database().ref();
-		var firebaseData = $firebaseObject(firebaseReference)
-		.then(function(data) {
-			console.log('projBuildSummaryController->fetchFromFirebase->success');
-		})
-		.catch(function(e) {
-			console.log('projBuildSummaryController->fetchFromFirebase->fail');
-		});
+		var firebaseData = $firebaseObject(firebaseReference);
 	}
 
 	function toDatetime(timeInMilliseconds) {
